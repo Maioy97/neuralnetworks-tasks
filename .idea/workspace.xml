@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="145eec13-1637-4157-baa3-c5280c047f8e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/task1/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1/GUI.py" afterDir="false" />
-    </list>
+    <list default="true" id="145eec13-1637-4157-baa3-c5280c047f8e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,18 +12,21 @@
     <session id="-671131538">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1613" />
+          <entry key="py" value="2308" />
+          <entry key="txt" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1613" />
+          <entry key="PLAIN_TEXT" value="21" />
+          <entry key="Python" value="2308" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -47,22 +48,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/task1/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+            <state relative-caret-position="453">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#277#722#0" />
+                <element signature="e#743#1802#0" />
                 <element signature="e#380#433#0" />
-                <marker date="1551804050873" expanded="true" signature="84:204" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="126:157" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="172:181" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="268:269" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="268:271" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="268:273" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="268:275" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="268:276" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="268:277" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="268:731" ph="..." />
-                <marker date="1551804050873" expanded="true" signature="789:790" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="84:1533" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="197:1486" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="1501:1510" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="1581:1582" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="1581:1584" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="1581:1586" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="1581:1588" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="1581:1589" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="1581:1590" ph="..." />
+                <marker date="1551816642029" expanded="true" signature="1581:2098" ph="..." />
+                <marker date="1551816642029" expanded="false" signature="2156:2157" ph="..." />
               </folding>
             </state>
           </provider>
@@ -71,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="101" column="30" lean-forward="true" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+            <state relative-caret-position="255">
+              <caret line="136" column="21" lean-forward="true" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -204,22 +207,29 @@
       <option name="presentableId" value="Default" />
       <updated>1551793384512</updated>
     </task>
+    <task id="LOCAL-00001" summary="gui looks ok for now">
+      <created>1551816675536</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551816675536</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32903227" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32903227" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32903227" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -231,6 +241,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gui looks ok for now" />
+    <option name="LAST_COMMIT_MESSAGE" value="gui looks ok for now" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -257,29 +271,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="101" column="30" lean-forward="true" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="136" column="21" lean-forward="true" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/task1/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+        <state relative-caret-position="453">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#277#722#0" />
+            <element signature="e#743#1802#0" />
             <element signature="e#380#433#0" />
-            <marker date="1551804050873" expanded="true" signature="84:204" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="126:157" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="172:181" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="268:269" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="268:271" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="268:273" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="268:275" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="268:276" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="268:277" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="268:731" ph="..." />
-            <marker date="1551804050873" expanded="true" signature="789:790" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="84:1533" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="197:1486" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="1501:1510" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="1581:1582" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="1581:1584" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="1581:1586" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="1581:1588" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="1581:1589" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="1581:1590" ph="..." />
+            <marker date="1551816642029" expanded="true" signature="1581:2098" ph="..." />
+            <marker date="1551816642029" expanded="false" signature="2156:2157" ph="..." />
           </folding>
         </state>
       </provider>
