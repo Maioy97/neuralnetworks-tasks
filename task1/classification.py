@@ -1,6 +1,14 @@
 import random
 import numpy as np
 
+
+def signum(num):
+    if num>0 :
+        return 1
+
+    else :
+        return -1
+
 class tr:
     def __init__(self):
         weights = np.random.rand(3, )
@@ -11,7 +19,7 @@ class tr:
 
         for i in range(0, epo):
             for j in range(0, len(labels)):
-                yi = signum((bias*weights[j][0]+x1[j]*weights[j][1]+x2[j]*weights[j][2]))
+                yi = signum((bias*weights[0]+x1[j]*weights[1]+x2[j]*weights[2]))
                 loss = labels[j]-yi
                 if loss > 0:
                     w1 = weights[0]+LR * loss * bias
@@ -27,4 +35,5 @@ class tr:
             yi = signum((bias * weights[0] + x1[i] * weights[1] + x2[i] * weights[2]))
             if yi != labels[i]:
                 miss +=1
-            
+        error=miss/len(labels)
+        return error
