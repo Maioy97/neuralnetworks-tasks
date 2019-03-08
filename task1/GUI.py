@@ -9,45 +9,51 @@ class GUI:
     class_names = ["Iris-setosa", "Iris-versicolor", "Iris-virginica"]
     features_list = ["X1", "X2", "X3", "X4"]
     module = classification.tr()
-    lstbx_class = ''
-    lstbx_feature = ''
+    lstbx_class = lstbx_feature = txtbx_epochs = txtbx_rate = chbttn_bias = 0
+    epochs = 50
     selection = ''
-    chk_bias = 0
+    bias = 1
 
     def __init__(self):
         self.setup()
         self.show()
 
     def bttn_start_onclick(self, a):
-        print(self.chk_bias)
+
         # check which classes and features are selected
         class1, class2 = self.lstbx_class.get(self.lstbx_class.curselection())
         feature1, feature2 = self.lstbx_feature.get(self.lstbx_feature.curselection())
+        self.epochs = self.txtbx_epochs.get()
+        self.bias = self.chbttn_bias.get()
+        print(self.bias)
         print(class1, ' ', class2)
         # call read data with said classes and features
         x1features, x2features, labels, class_names = self.read_data(class1, class2, feature1, feature2)
         # organise data : divide it into train and test data
         x1features = np.array(x1features)
-        trainx1 = x1features[0:31, 50:81]
-        testx1 = x1features[31:50, 81::]
+        tr_x1 = x1features[0:31, 50:81]
+        ts_x1 = x1features[31:50, 81::]
         x2features = np.array(x2features)
-        trainx2 = x2features[0:31, 50:81]
-        testx1 = x2features[31:50, 81::]
+        tr_x2 = x2features[0:31, 50:81]
+        ts_x2 = x2features[31:50, 81::]
         labels = np.array(labels)
-        trainlabeles = labels[0:31, 50:81]
-        testlables = labels[31:50, 81:150]
-        weights = self.module.train(trainlabeles, 50, self.chk_bias, trainx1, trainx2, 0.5)
+        train_labels = labels[0:31, 50:81]
+        test_labels = labels[31:50, 81:150]
+        weights = self.module.train(train_labels, self.epochs, self.bias, tr_x1, tr_x2, 0.5)
         # get line points
         decision_line = []
-        decision_line.add((0, 0))
-        decision_line.add((0, 0))
+        x = feature2[0]
+        y = (-weights[0]*x - self.bias)/weights[1]
+        decision_line.add((x, y))
+        x = feature1[50]
+        y = (-weights[0] * x - self.bias) / weights[1]
+        decision_line.add((x, y))
         # output graph (decision boundary visible)
-        self.plot_class((feature1, feature2), x1features, x2features, decision_line, class_names)
+        self.plot_class([feature1, feature2], x1features, x2features, decision_line, class_names)
         # call test and output the percentage
-        error = self.module.test(testlables, testx1, testx1)
+        error = self.module.test(test_labels, ts_x1, ts_x2)
         accuracy = 1 - error
         # show accuracy
-        # show
 
     def callback(self, a):
         if len(self.lstbx_class.curselection()) > 2:
@@ -84,24 +90,23 @@ class GUI:
 
         lbl_rate = tk.Label(self.window, text="learning rate")
         lbl_rate.place(x=300, y=50)
-        txtbx_rate = tk.Entry(self.window)
-        txtbx_rate.place(x=375, y=50)
+        self.txtbx_rate = tk.Entry(self.window)
+        self.txtbx_rate.place(x=375, y=50)
 
         lbl_epochs = tk.Label(self.window, text="epochs")
         lbl_epochs.place(x=300, y=75)
-        txtbx_epochs = tk.Entry(self.window)
-        txtbx_epochs.place(x=375, y=75)
+        self.txtbx_epochs = tk.Entry(self.window)
+        self.txtbx_epochs.place(x=375, y=75)
 
         lbl_bias = tk.Label(self.window, text="bias")
         lbl_bias.place(x=300, y=100)
 
-        chbttn_bias = tk.Checkbutton(self.window, variable=self.chk_bias)
-        chbttn_bias.place(x=350, y=100)
+        self.chbttn_bias = tk.Checkbutton(self.window, variable=self.bias)
+        self.chbttn_bias.place(x=350, y=100)
 
         bttn_start = tk.Button(self.window, text="start")
         bttn_start.place(x=300, y=150)
         bttn_start.bind("<Button-1>", self.bttn_start_onclick)  # <Button-1> = left click
-
 
     def show(self):
         self.window.mainloop()

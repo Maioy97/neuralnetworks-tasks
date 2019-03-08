@@ -4,7 +4,6 @@
     <list default="true" id="145eec13-1637-4157-baa3-c5280c047f8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task1/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1/GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task1/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1/classification.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,35 +15,36 @@
     <session id="-671131538">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.48" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4224" />
+          <entry key="py" value="4493" />
           <entry key="txt" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="4224" />
+          <entry key="Python" value="4493" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="1" />
+          <entry key="py" value="7" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="1" />
+          <entry key="Python" value="7" />
         </counts>
       </usages-collector>
     </session>
@@ -54,35 +54,60 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/task1/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="101" column="37" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
+            <state relative-caret-position="2454">
+              <caret line="206" column="34" selection-start-line="206" selection-start-column="32" selection-end-line="206" selection-end-column="34" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#154#186#0" />
-                <element signature="e#1275#1290#0" />
-                <element signature="e#1534#1773#0" />
-                <element signature="e#2000#2255#0" />
-                <element signature="e#2738#3217#0" />
-                <element signature="e#2482#2984#0" />
-                <element signature="e#3058#4243#0" />
-                <element signature="e#3676#3842#0" />
-                <element signature="e#4301#5275#0" />
-                <marker date="1552042970415" expanded="true" signature="117:4064" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="392:439" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="434:439" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="635:636" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="635:2480" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="2501:4017" ph="..." />
-                <marker date="1552042970415" expanded="false" signature="4032:4041" ph="..." />
-                <marker date="1552042970415" expanded="false" signature="4633:4634" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="4633:4636" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="4633:4638" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="4633:4640" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="4633:4641" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="4633:4642" ph="..." />
-                <marker date="1552042970415" expanded="true" signature="4633:5150" ph="..." />
-                <marker date="1552042970415" expanded="false" signature="5208:5209" ph="..." />
+                <marker date="1552054126840" expanded="true" signature="117:4356" ph="..." />
+                <marker date="1552054126840" expanded="true" signature="438:485" ph="..." />
+                <marker date="1552054126840" expanded="true" signature="480:485" ph="..." />
+                <marker date="1552054126840" expanded="true" signature="653:654" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/tkinter/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="2073" selection-start-line="2073" selection-end-line="2073" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/_collections_abc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="667" selection-start-line="667" selection-end-line="667" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/os.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="668" selection-start-line="668" selection-end-line="668" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/ntpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="110" selection-start-line="110" selection-end-line="110" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/genericpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="134" selection-start-line="134" selection-end-line="134" />
             </state>
           </provider>
         </entry>
@@ -90,7 +115,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
+            <state relative-caret-position="2312">
               <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
             </state>
           </provider>
@@ -99,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task1/classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" selection-end-line="1" />
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -121,12 +146,18 @@
       <find>int</find>
       <find>weights</find>
       <find>(window</find>
+      <find>labeels</find>
     </findStrings>
     <replaceStrings>
       <replace>append</replace>
       <replace>float</replace>
       <replace>self.weights</replace>
       <replace>(self.window</replace>
+      <replace>tr_x1</replace>
+      <replace>tr_x2</replace>
+      <replace>ts_x2</replace>
+      <replace>ts_x1</replace>
+      <replace>labels</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -150,6 +181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,7 +198,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -250,7 +281,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32903227" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32903227" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -276,8 +307,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/task1/GUI.py</url>
-          <line>23</line>
-          <option name="timeStamp" value="1" />
+          <line>7</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -304,48 +335,63 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
+        <state relative-caret-position="2312">
           <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/task1/classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" selection-end-line="1" />
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/genericpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="134" selection-start-line="134" selection-end-line="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/os.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="668" selection-start-line="668" selection-end-line="668" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/_collections_abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="667" selection-start-line="667" selection-end-line="667" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="2073" selection-start-line="2073" selection-end-line="2073" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/task1/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="101" column="37" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
+        <state relative-caret-position="2454">
+          <caret line="206" column="34" selection-start-line="206" selection-start-column="32" selection-end-line="206" selection-end-column="34" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#154#186#0" />
-            <element signature="e#1275#1290#0" />
-            <element signature="e#1534#1773#0" />
-            <element signature="e#2000#2255#0" />
-            <element signature="e#2738#3217#0" />
-            <element signature="e#2482#2984#0" />
-            <element signature="e#3058#4243#0" />
-            <element signature="e#3676#3842#0" />
-            <element signature="e#4301#5275#0" />
-            <marker date="1552042970415" expanded="true" signature="117:4064" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="392:439" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="434:439" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="635:636" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="635:2480" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="2501:4017" ph="..." />
-            <marker date="1552042970415" expanded="false" signature="4032:4041" ph="..." />
-            <marker date="1552042970415" expanded="false" signature="4633:4634" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="4633:4636" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="4633:4638" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="4633:4640" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="4633:4641" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="4633:4642" ph="..." />
-            <marker date="1552042970415" expanded="true" signature="4633:5150" ph="..." />
-            <marker date="1552042970415" expanded="false" signature="5208:5209" ph="..." />
+            <marker date="1552054126840" expanded="true" signature="117:4356" ph="..." />
+            <marker date="1552054126840" expanded="true" signature="438:485" ph="..." />
+            <marker date="1552054126840" expanded="true" signature="480:485" ph="..." />
+            <marker date="1552054126840" expanded="true" signature="653:654" ph="..." />
           </folding>
         </state>
       </provider>
