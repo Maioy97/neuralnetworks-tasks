@@ -45,47 +45,48 @@ class GUI:
                                                                       self.selected_features[1])
         # organise data : divide it into train and test data
         x1features = np.array(x1features)
-        tr_x1 = ts_1 = tr_x2 = ts_2 = train_labels = test_labels = []
 
-        tr_x1.append(x1features[0:31])
-        tr_x1.append(x1features[50:81])
+        tr_x1 = np.array(x1features[0:31])   # .astype(float))
+        tr_x1 = np.append(tr_x1, x1features[50:81])  # .astype(float))
 
-        ts_1.append(x1features[31:50])
-        ts_1.append(x1features[81::])
+        ts_1 = np.array(x1features[31:50].astype(float))
+        ts_1 = np.append(ts_1, x1features[81::].astype(float))
 
-        x2features = np.array(x2features)
-        tr_x2.append(x2features[0:31])
-        tr_x2.append(x2features[50:81])
+        x2features = np.array(x2features).astype(float)
+        tr_x2 = np.array(x2features[0:31].astype(float))
+        tr_x2 = np.append(tr_x2, x2features[50:81].astype(float))
 
-        ts_2.append(x2features[31:50])
-        ts_2.append(x2features[81::])
+        ts_2 = np.array(x2features[31:50].astype(float))
+        ts_2 = np.append(ts_2, x2features[81::].astype(float))
 
-        labels = np.array(labels)
-        train_labels.append(labels[0:31])
-        train_labels.append(x1features[50:81])
+        labels = np.array(labels).astype(int)
+        train_labels = np.array(labels[0:31].astype(int))
+        train_labels = np.append(train_labels, labels[50:81].astype(int))
 
-        test_labels.append(labels[31:50])
-        test_labels.append(labels[81::])
+        test_labels = np.array(labels[31:50].astype(int))
+        test_labels = np.append(test_labels, labels[81::].astype(int))
 
         weights = self.module.train(train_labels, l_epochs, l_bias, tr_x1, tr_x2, l_rate)
         # get line points
         decision_line = []
-        x = x2features[0]
-        y = (-weights[0]*x - self.bias)/weights[1]
-        decision_line.add((x, y))
-        x = x2features[50]
-        y = (-weights[0] * x - self.bias) / weights[1]
-        decision_line.add((x, y))
+        x = x1features[0]
+        # Y1=(-(W[1]*Xmax)-W[0])/W[2]
+        y = (-weights[1]*x - l_bias)/weights[2]
+        decision_line.append((x, y))
+        x = x1features[50]
+        y = (-weights[1] * x - l_bias) / weights[2]
+        decision_line.append((x, y))
         # output graph (decision boundary visible)
         feature1 = self.selected_features[0]
         feature2 = self.selected_features[1]
-        self.plot_class([feature1, feature2], x1features, x2features, decision_line, class_names)
         # call test and output the percentage
-        error = self.module.test(test_labels, ts_1, ts_2)
-        accuracy =(1 - error)*100
-
-        msg = tk.messagebox.showinfo("model accuracy", "model is %d " , )
+        conmat, error = self.module.test(test_labels, ts_1, ts_2)
         # show accuracy
+        accuracy = (1 - error)*100
+        msg_str = "model is %d % accurate", accuracy
+        msg = tk.messagebox.showinfo("model accuracy", msg_str)
+        print(conmat)
+        self.plot_class_([feature1, feature2], x1features, x2features, decision_line, class_names)
 
     def callback(self, a):
         if len(self.lstbx_class.curselection()) > 2:
@@ -145,7 +146,7 @@ class GUI:
     def show(self):
         self.window.mainloop()
 
-    def plot_class(self, feature_num, feature1, feature2, decision_line, class_names):
+    def plot_class_(self, feature_num, feature1, feature2, decision_line, class_names):
         # for the showing output
         plt.figure(class_names[0] + " vs " + class_names[1])
         plt.xlabel('X%d' % (feature_num[0] + 1))
@@ -235,6 +236,57 @@ class GUI:
         return Xfeatures, Yfeatures, labels, class_names
 
 
+def test_training_only():
+    bias = 1
+    mod = classification.tr()
+    x1features, x2features, labels, class_names = GUI.read_data_(GUI, 0, 1, 0, 1)
+    # organise data : divide it into train and test data
+    x1features = np.array(x1features).astype(float)
+
+    tr_x1 = np.array(x1features[0:31])   # .astype(float))
+    tr_x1 = np.append(tr_x1, x1features[50:81])  # .astype(float))
+
+    ts_1 = np.array(x1features[31:50].astype(float))
+    ts_1 = np.append(ts_1, x1features[81::].astype(float))
+
+    x2features = np.array(x2features).astype(float)
+    tr_x2 = np.array(x2features[0:31].astype(float))
+    tr_x2 = np.append(tr_x2, x2features[50:81].astype(float))
+
+    ts_2 = np.array(x2features[31:50].astype(float))
+    ts_2 = np.append(ts_2, x2features[81::].astype(float))
+
+    labels = np.array(labels).astype(int)
+    train_labels = np.array(labels[0:31].astype(int))
+    train_labels = np.append(train_labels, labels[50:81].astype(int))
+
+    test_labels = np.array(labels[31:50].astype(int))
+    test_labels = np.append(test_labels, labels[81::].astype(int))
+
+    weights = mod.train(train_labels, 50, bias, tr_x1, tr_x2, .2)
+    print(weights)
+    # get line points
+    decision_line = []
+    x = x2features[0]
+    y = (-weights[0] * x - 1) / weights[1]
+    decision_line.append((x, y))
+    x = x2features[50]
+    y = (-weights[0] * x - bias) / weights[1]
+    decision_line.append((x, y))
+    # output graph (decision boundary visible)
+    feature1 = 0
+    feature2 = 1
+    GUI.plot_class_(GUI,[feature1, feature2], x1features, x2features, decision_line, class_names)
+    # call test and output the percentage
+    conmat, error = mod.test(test_labels, ts_1, ts_2)
+    # show accuracy
+    accuracy = (1 - error) * 100
+    msg_str = "model is %d % accurate", accuracy
+    msg = tk.messagebox.showinfo("model accuracy", msg_str)
+    print(conmat)
+
+
+#test_training_only()
 window = GUI()
 '''GUI.plot_class(GUI, 0, 1)  # x1 x2
 GUI.plot_class(GUI, 0, 2)  # x1 x3
@@ -242,4 +294,6 @@ GUI.plot_class(GUI, 0, 3)  # x1 x4
 GUI.plot_class(GUI, 1, 2)  # x2 x3
 GUI.plot_class(GUI, 1, 3)  # x2 x4
 GUI.plot_class(GUI, 2, 3)  # x3 x4'''
+
+
 

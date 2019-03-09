@@ -9,11 +9,14 @@ def signum(num):
     else:
         return -1
 
+
 class tr:
+    weight = []
+    bias = 1
+
     def __init__(self):
-        weights = np.random.rand(3, )
-        weights[0] = 1
-        bias = 1
+        self.weights = np.random.rand(3, )
+        self.weights[0] = 1
 
     def train(self, labels, epo, bias, x1, x2, LR):
 
@@ -29,23 +32,24 @@ class tr:
                     self.weights[1] = w2
                     self.weights[2] = w3
                 return self.weights
-    def test(self,labels,x1,x2):
-        miss=0
-        conmat=np.empty((2,3))
-        for i in range(0,len(labels)):
-            yi = signum((bias * self.weights[0] + x1[i] * self.weights[1] + x2[i] * self.weights[2]))
+
+    def test(self, labels, x1, x2):
+        miss = 0
+        conmat = np.empty((2, 3))
+        for i in range(0, len(labels)):
+            yi = signum((self.bias * self.weights[0] + x1[i] * self.weights[1] + x2[i] * self.weights[2]))
             if yi != labels[i]:
-                miss +=1
-            if yi==1 & labels[i]==1:
-                conmat[0][0]+=1
-            elif yi==1 & labels[i]==-1:
-                conmat[0][1]+=1
-            elif yi==-1 & labels[i]==-1:
-                conmat[1][0]+=1
-            else :
-                conmat[1][1]+=1
-        conmat[0][2]=conmat[0][0]/(conmat[0][0]+conmat[0][1])
-        conmat[1][2]=conmat[1][0]/(conmat[1][0]+conmat[1][1])
-        TotalError=miss/len(labels)
-        return conmat,TotalError
+                miss += 1
+            if yi == 1 & labels[i] == 1:
+                conmat[0][0] += 1
+            elif yi == 1 & labels[i] == -1:
+                conmat[0][1] += 1
+            elif yi == -1 & labels[i] == -1:
+                conmat[1][0] += 1
+            else:
+                conmat[1][1] += 1
+        conmat[0][2] = conmat[0][0]/(conmat[0][0]+conmat[0][1])
+        conmat[1][2] = conmat[1][0]/(conmat[1][0]+conmat[1][1])
+        TotalError = miss/len(labels)
+        return conmat, TotalError
 
