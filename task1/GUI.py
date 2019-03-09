@@ -34,7 +34,8 @@ class GUI:
         self.selected_features = self.lstbx_feature.curselection()
         print("features:", self.selected_features)
         l_epochs = int(self.txtbx_epochs.get())
-        l_bias = float(self.bias.get())
+        l_bias = int(self.bias.get())
+        l_rate = float(self.rate.get())
         # call read data with said classes and features
         x1features, x2features, labels, class_names = self.read_data_(self.selected_classes[0],
                                                                       self.selected_classes[1],
@@ -42,15 +43,29 @@ class GUI:
                                                                       self.selected_features[1])
         # organise data : divide it into train and test data
         x1features = np.array(x1features)
-        tr_x1 = x1features[0:31, 50:81]
-        ts_x1 = x1features[31:50, 81::]
+        tr_x1 = ts_1 = tr_x2 = ts_2 = train_labels = test_labels = []
+
+        tr_x1.append(x1features[0:31])
+        tr_x1.append(x1features[50:81])
+
+        ts_1.append(x1features[31:50])
+        ts_1.append(x1features[81::])
+
         x2features = np.array(x2features)
-        tr_x2 = x2features[0:31, 50:81]
-        ts_x2 = x2features[31:50, 81::]
+        tr_x2.append(x2features[0:31])
+        tr_x2.append(x2features[50:81])
+
+        ts_2.append(x2features[31:50])
+        ts_2.append(x2features[81::])
+
         labels = np.array(labels)
-        train_labels = labels[0:31, 50:81]
-        test_labels = labels[31:50, 81:150]
-        weights = self.module.train(train_labels, l_epochs, l_bias, tr_x1, tr_x2, 0.5)
+        train_labels.append(labels[0:31])
+        train_labels.append(x1features[50:81])
+
+        test_labels.append(labels[31:50])
+        test_labels.append(labels[81::])
+
+        weights = self.module.train(train_labels, l_epochs, l_bias, tr_x1, tr_x2, l_rate)
         # get line points
         decision_line = []
         x = x2features[0]
@@ -105,12 +120,12 @@ class GUI:
 
         lbl_rate = tk.Label(self.window, text="learning rate")
         lbl_rate.place(x=300, y=50)
-        self.txtbx_rate = tk.Entry(self.window)
+        self.txtbx_rate = tk.Entry(self.window, textvariable=self.rate)
         self.txtbx_rate.place(x=375, y=50)
 
         lbl_epochs = tk.Label(self.window, text="epochs")
         lbl_epochs.place(x=300, y=75)
-        self.txtbx_epochs = tk.Entry(self.window)
+        self.txtbx_epochs = tk.Entry(self.window, textvariable=self.epochs)
         self.txtbx_epochs.place(x=375, y=75)
 
         lbl_bias = tk.Label(self.window, text="bias")
