@@ -1,44 +1,128 @@
 import tkinter as tk
 import matplotlib.pyplot as plt
 import numpy as np
+from task1 import classification
 
 
 class GUI:
     window = tk.Tk()
     class_names = ["Iris-setosa", "Iris-versicolor", "Iris-virginica"]
-    def setup(self):
-        window = tk.Tk()
-        window.geometry("500x500")
-        lbl_classes = tk.Label(window, text="classes")
-        lbl_classes.place(x=25, y=25)
-        lstbx_class1 = tk.Listbox(window, selectmode="single")
-        lstbx_class1.place(x=25, y=50)
-        lstbx_class2 = tk.Listbox(window, selectmode="single")
-        lstbx_class2.place(x=150, y=50)
-        for item in self.class_names:
-            lstbx_class1.insert('end', item)
-        lbl_features = tk.Label(window, text="features")
-        lbl_features.place(x=25, y=225)
-        lstbx_feature1 = tk.Listbox(window, selectmode="single")
-        lstbx_feature1.place(x=25, y=250)
-        lstbx_feature2 = tk.Listbox(window, selectmode="single")
-        lstbx_feature2.place(x=150, y=250)
-        lbl_rate = tk.Label(window, text="learning rate")
-        lbl_rate.place(x=300, y=25)
-        lbl_epochs = tk.Label(window, text="epochs")
-        lbl_epochs.place(x=300, y=50)
-        lbl_bias = tk.Label(window, text="bias")
-        lbl_bias.place(x=300, y=75)
-        chbttn_bias= tk.Checkbutton(window)
-        chbttn_bias.place(x=350,y=75)
-        bttn_start = tk.Button(window, text="start")
-        bttn_start.place(x=300, y=100)
-        for item in self.class_names:
-            lstbx_feature2.insert('end', item)
+    features_list = ["X1", "X2", "X3", "X4"]
+    module = classification.tr()
+    lstbx_class = lstbx_feature = txtbx_epochs = txtbx_rate = chbttn_bias = 0
+    epochs = 50
+    selection = ''
+    bias = 1
 
+    def __init__(self):
+        self.setup()
+        self.show()
+
+    def bttn_start_onclick(self, a):
+
+        # check which classes and features are selected
+        class1, class2 = self.lstbx_class.get(self.lstbx_class.curselection())
+        feature1, feature2 = self.lstbx_feature.get(self.lstbx_feature.curselection())
+        self.epochs = self.txtbx_epochs.get()
+        self.bias = self.chbttn_bias.get()
+        print(self.bias)
+        print(class1, ' ', class2)
+        # call read data with said classes and features
+        x1features, x2features, labels, class_names = self.read_data(class1, class2, feature1, feature2)
+        # organise data : divide it into train and test data
+        x1features = np.array(x1features)
+        tr_x1 = x1features[0:31, 50:81]
+        ts_x1 = x1features[31:50, 81::]
+        x2features = np.array(x2features)
+        tr_x2 = x2features[0:31, 50:81]
+        ts_x2 = x2features[31:50, 81::]
+        labels = np.array(labels)
+        train_labels = labels[0:31, 50:81]
+        test_labels = labels[31:50, 81:150]
+        weights = self.module.train(train_labels, self.epochs, self.bias, tr_x1, tr_x2, 0.5)
+        # get line points
+        decision_line = []
+        x = feature2[0]
+        y = (-weights[0]*x - self.bias)/weights[1]
+        decision_line.add((x, y))
+        x = feature1[50]
+        y = (-weights[0] * x - self.bias) / weights[1]
+        decision_line.add((x, y))
+        # output graph (decision boundary visible)
+        self.plot_class([feature1, feature2], x1features, x2features, decision_line, class_names)
+        # call test and output the percentage
+        error = self.module.test(test_labels, ts_x1, ts_x2)
+        accuracy = 1 - error
+        # show accuracy
+
+    def callback(self, a):
+        if len(self.lstbx_class.curselection()) > 2:
+            for i in self.lstbx_class.curselection():
+                if i not in self.selection:
+                    self.lstbx_class.selection_clear(i)
+        self.selection = self.lstbx_class.curselection()
+
+    def callback_features(self, a):
+        if len(self.lstbx_class.curselection()) > 2:
+            for i in self.lstbx_class.curselection():
+                if i not in self.selection:
+                    self.lstbx_class.selection_clear(i)
+        self.selection = self.lstbx_class.curselection()
+
+    def setup(self):
+        self.window = tk.Tk()
+        self.window.geometry("550x300")
+
+        lbl_classes = tk.Label(self.window, text="Pick classes and features :")
+        lbl_classes.place(x=25, y=25)
+
+        self.lstbx_class = tk.Listbox(self.window, selectmode="multiple")
+        self.lstbx_class.place(x=25, y=50)
+        self.lstbx_class.bind("<<ListboxSelect>>", self.callback)
+        for item in self.class_names:
+            self.lstbx_class.insert('end', item)
+
+        self.lstbx_feature = tk.Listbox(self.window, selectmode="multiple")
+        self.lstbx_feature.place(x=150, y=50)
+        self.lstbx_feature.bind("<<ListboxSelect>>", self.callback_features)
+        for item in self.features_list:
+            self.lstbx_feature.insert('end', item)
+
+        lbl_rate = tk.Label(self.window, text="learning rate")
+        lbl_rate.place(x=300, y=50)
+        self.txtbx_rate = tk.Entry(self.window)
+        self.txtbx_rate.place(x=375, y=50)
+
+        lbl_epochs = tk.Label(self.window, text="epochs")
+        lbl_epochs.place(x=300, y=75)
+        self.txtbx_epochs = tk.Entry(self.window)
+        self.txtbx_epochs.place(x=375, y=75)
+
+        lbl_bias = tk.Label(self.window, text="bias")
+        lbl_bias.place(x=300, y=100)
+
+        self.chbttn_bias = tk.Checkbutton(self.window, variable=self.bias)
+        self.chbttn_bias.place(x=350, y=100)
+
+        bttn_start = tk.Button(self.window, text="start")
+        bttn_start.place(x=300, y=150)
+        bttn_start.bind("<Button-1>", self.bttn_start_onclick)  # <Button-1> = left click
 
     def show(self):
         self.window.mainloop()
+
+    def plot_class(self, feature_num, feature1, feature2, decision_line, class_names):
+        # for the showing output
+        plt.figure(class_names[0] + " vs " + class_names[1])
+        plt.xlabel('X%d' % (feature_num[0] + 1))
+        plt.ylabel('X%d' % (feature_num[1] + 1))
+        x = np.array(feature1)
+        y = np.array(feature2)
+        plt.scatter(x[0:50], y[0:50])
+        plt.scatter(x[50:100], y[50:100])
+        plt.plot(decision_line[0], decision_line[1])  # consists of two points
+
+        plt.show()
 
     def plot_class(self, features1, features2):
         # for the first part of the task
@@ -91,7 +175,7 @@ class GUI:
 
     def read_data(self, features1, features2):
 
-        # reads data based on class number and feature number
+        # reads data based on feature number only (all classes)
         # reads selected features starting at row classnumber*50 till row class number*50+50
         Xfeatures = []
         Yfeatures = []
@@ -117,11 +201,11 @@ class GUI:
         return Xfeatures, Yfeatures, labels, class_names
 
 
-GUI.setup(GUI)
-GUI.show(GUI)
+window = GUI()
 '''GUI.plot_class(GUI, 0, 1)  # x1 x2
 GUI.plot_class(GUI, 0, 2)  # x1 x3
 GUI.plot_class(GUI, 0, 3)  # x1 x4
 GUI.plot_class(GUI, 1, 2)  # x2 x3
 GUI.plot_class(GUI, 1, 3)  # x2 x4
 GUI.plot_class(GUI, 2, 3)  # x3 x4'''
+
