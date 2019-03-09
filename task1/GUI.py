@@ -34,7 +34,7 @@ class GUI:
         self.selected_features = self.lstbx_feature.curselection()
         print("features:", self.selected_features)
         l_epochs = int(self.txtbx_epochs.get())
-        l_bias = float(self.chbttn_bias.get())
+        l_bias = float(self.bias.get())
         # call read data with said classes and features
         x1features, x2features, labels, class_names = self.read_data_(self.selected_classes[0],
                                                                       self.selected_classes[1],
