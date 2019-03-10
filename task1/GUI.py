@@ -68,13 +68,15 @@ class GUI:
         weights = self.module.train(train_labels, l_epochs, l_bias, tr_x1, tr_x2, l_rate)
         # get line points
         decision_line = []
-        x = max(tr_x1)
+        x = max(tr_x2)
         # x2 = - (w[1] x1 + b)/w[2]
         y = -(weights[2]*x + weights[0]*l_bias) / weights[1]
         decision_line.append((x, y))
-        x = min(tr_x1)
+
+        x = min(tr_x2)
         y = -(weights[2] * x + weights[0]*l_bias) / weights[1]
         decision_line.append((x, y))
+        print(decision_line)
         # output graph (decision boundary visible)
         feature1 = self.selected_features[0]
         feature2 = self.selected_features[1]
@@ -154,7 +156,9 @@ class GUI:
         y = np.array(feature2)
         plt.scatter(x[0:50], y[0:50])
         plt.scatter(x[50:100], y[50:100])
-        plt.plot(decision_line[0], decision_line[1])  # consists of two points
+        print(decision_line)
+        plt.plot([decision_line[0][1], decision_line[1][1]], [decision_line[0][0], decision_line[1][0]])
+        # consists of two points x1 x2 y1 y2
 
         plt.show()
 
