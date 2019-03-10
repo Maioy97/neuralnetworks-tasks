@@ -29,7 +29,6 @@ class GUI:
         self.show()
 
     def bttn_start_onclick(self, a):
-
         # check which classes and features are selected
         self.selected_classes = self.lstbx_class.curselection()
         print("classes:", self.selected_classes)
@@ -46,35 +45,35 @@ class GUI:
         # organise data : divide it into train and test data
         x1features = np.array(x1features)
 
-        tr_x1 = np.array(x1features[0:31])   # .astype(float))
-        tr_x1 = np.append(tr_x1, x1features[50:81])  # .astype(float))
+        tr_x1 = np.array(x1features[0:30])
+        tr_x1 = np.append(tr_x1, x1features[50:80])
 
-        ts_1 = np.array(x1features[31:50].astype(float))
-        ts_1 = np.append(ts_1, x1features[81::].astype(float))
+        ts_1 = np.array(x1features[30:50].astype(float))
+        ts_1 = np.append(ts_1, x1features[80::].astype(float))
 
         x2features = np.array(x2features).astype(float)
-        tr_x2 = np.array(x2features[0:31].astype(float))
-        tr_x2 = np.append(tr_x2, x2features[50:81].astype(float))
+        tr_x2 = np.array(x2features[0:30].astype(float))
+        tr_x2 = np.append(tr_x2, x2features[50:80].astype(float))
 
-        ts_2 = np.array(x2features[31:50].astype(float))
-        ts_2 = np.append(ts_2, x2features[81::].astype(float))
+        ts_2 = np.array(x2features[30:50].astype(float))
+        ts_2 = np.append(ts_2, x2features[80::].astype(float))
 
         labels = np.array(labels).astype(int)
-        train_labels = np.array(labels[0:31].astype(int))
-        train_labels = np.append(train_labels, labels[50:81].astype(int))
+        train_labels = np.array(labels[0:30].astype(int))
+        train_labels = np.append(train_labels, labels[50:80].astype(int))
 
-        test_labels = np.array(labels[31:50].astype(int))
-        test_labels = np.append(test_labels, labels[81::].astype(int))
+        test_labels = np.array(labels[30:50].astype(int))
+        test_labels = np.append(test_labels, labels[80::].astype(int))
 
         weights = self.module.train(train_labels, l_epochs, l_bias, tr_x1, tr_x2, l_rate)
         # get line points
         decision_line = []
-        x = x1features[0]
-        # Y1=(-(W[1]*Xmax)-W[0])/W[2]
-        y = (-weights[1]*x - l_bias)/weights[2]
+        x = max(tr_x1)
+        # x2 = - (w[1] x1 + b)/w[2]
+        y = -(weights[2]*x + weights[0]*l_bias) / weights[1]
         decision_line.append((x, y))
-        x = x1features[50]
-        y = (-weights[1] * x - l_bias) / weights[2]
+        x = min(tr_x1)
+        y = -(weights[2] * x + weights[0]*l_bias) / weights[1]
         decision_line.append((x, y))
         # output graph (decision boundary visible)
         feature1 = self.selected_features[0]
@@ -194,7 +193,7 @@ class GUI:
             line = lines[i].split(',')
             Xfeatures.append(float(line[features1]))
             Yfeatures.append(float(line[features2]))
-            labels.append(class1)
+            labels.append(1)
 
         start = class2 * 50+1
         end = start + 50
@@ -204,7 +203,7 @@ class GUI:
             line = lines[i].split(',')
             Xfeatures.append(float(line[features1]))
             Yfeatures.append(float(line[features2]))
-            labels.append(class2)
+            labels.append(-1)
 
         return Xfeatures, Yfeatures, labels, class_names
 
@@ -219,7 +218,7 @@ class GUI:
         fp = open('IrisData.txt')  # Open file on read mode
         lines = fp.read().split("\n")  # Create a list containing all lines
         fp.close()  # Close file
-        class_names = ["Iris-setosa", "Iris-versicolor","Iris-virginica"]
+        class_names = ["Iris-setosa", "Iris-versicolor", "Iris-virginica"]
         for line in lines:
 
             line = line.split(',')
@@ -264,7 +263,7 @@ def test_training_only():
     test_labels = np.append(test_labels, labels[81::].astype(int))
 
     weights = mod.train(train_labels, 50, bias, tr_x1, tr_x2, .2)
-    print(weights)
+    print("weight:", weights)
     # get line points
     decision_line = []
     x = x2features[0]

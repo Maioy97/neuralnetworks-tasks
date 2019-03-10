@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="145eec13-1637-4157-baa3-c5280c047f8e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task1/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1/GUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task1/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1/classification.py" afterDir="false" />
     </list>
@@ -51,58 +52,49 @@
     <session id="1678024678">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.40" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="775" />
+          <entry key="py" value="1173" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="775" />
+          <entry key="Python" value="1173" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="1" />
+          <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="1" />
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task1/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="237">
+              <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#3182#3437#0" />
-                <element signature="e#3483#3747#0" />
-                <element signature="e#3779#5513#0" />
-                <element signature="e#5662#6086#0" />
-                <element signature="e#6144#6646#0" />
-                <element signature="e#6721#7906#0" />
-                <element signature="e#6753#7727#0" />
+                <element signature="e#3549#3804#0" />
+                <element signature="e#3850#4114#0" />
+                <element signature="e#4146#5880#0" />
+                <element signature="e#8332#9306#0" />
+                <element signature="e#9331#11164#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/codecs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="308" selection-start-line="308" selection-end-line="308" />
             </state>
           </provider>
         </entry>
@@ -110,20 +102,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2312">
+            <state relative-caret-position="153">
               <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/task1/classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="e#924#1655#0" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -164,8 +153,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/task1/classification.py" />
         <option value="$PROJECT_DIR$/task1/GUI.py" />
+        <option value="$PROJECT_DIR$/task1/classification.py" />
       </list>
     </option>
   </component>
@@ -184,12 +173,12 @@
         <subPane>
           <expand>
             <path>
-              <item name="neuralnetwork tasks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="neuralnetwork tasks" type="462c0819:PsiDirectoryNode" />
+              <item name="neuralnetworks-tasks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="neuralnetworks-tasks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="neuralnetwork tasks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="neuralnetwork tasks" type="462c0819:PsiDirectoryNode" />
+              <item name="neuralnetworks-tasks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="neuralnetworks-tasks" type="462c0819:PsiDirectoryNode" />
               <item name="task1" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -305,14 +294,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/task1/classification.py</url>
-          <line>22</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/task1/GUI.py</url>
+          <line>251</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/task1/GUI.py</url>
-          <line>249</line>
-          <option name="timeStamp" value="11" />
+          <line>67</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task1/classification.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -323,6 +317,11 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="l_rate" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -365,13 +364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2312">
-          <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -393,30 +385,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task1/classification.py">
+    <entry file="file://$USER_HOME$/Anaconda3/envs/ML/Lib/site-packages/numpy/lib/function_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#924#1655#0" />
-          </folding>
+        <state relative-caret-position="115">
+          <caret line="4682" selection-start-line="4682" selection-end-line="4682" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/task1/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="237">
+          <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#3182#3437#0" />
-            <element signature="e#3483#3747#0" />
-            <element signature="e#3779#5513#0" />
-            <element signature="e#5662#6086#0" />
-            <element signature="e#6144#6646#0" />
-            <element signature="e#6721#7906#0" />
-            <element signature="e#6753#7727#0" />
+            <element signature="e#3549#3804#0" />
+            <element signature="e#3850#4114#0" />
+            <element signature="e#4146#5880#0" />
+            <element signature="e#8332#9306#0" />
+            <element signature="e#9331#11164#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task1/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
         </state>
       </provider>
     </entry>
