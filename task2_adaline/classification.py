@@ -25,7 +25,7 @@ class tr:
         epoch = 1
         counter = 0
         self.bias = bias
-        pos_range = 0.00001
+        pos_range = 0.000000000001
 
         while mse > stopping_condition and counter < 10:
             error = 0  # (di-yi)^2
@@ -47,10 +47,12 @@ class tr:
             mse = 1/n * error
 
             condition_var = mse - min_mse
-            if -pos_range > condition_var > pos_range:   # -range>condition>range
+            if -pos_range > condition_var or condition_var > pos_range:
+                # -range>condition>range
                 min_mse = mse
                 counter = 0
-            else:           #  if condition_var < pos_range and condition_var > - pos_range: # condition
+            else:
+                #  if condition_var < pos_range and condition_var > - pos_range: # condition
                 # too little change
                 counter += 1
             print("end of epoch:", epoch, "mse =", mse, "counter:", counter)
