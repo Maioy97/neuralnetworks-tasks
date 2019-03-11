@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="145eec13-1637-4157-baa3-c5280c047f8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task2_adaline/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/task2_adaline/GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task2_adaline/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/task2_adaline/classification.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,44 +61,60 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1532" />
-          <entry key="txt" value="77" />
+          <entry key="py" value="2149" />
+          <entry key="txt" value="94" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="77" />
-          <entry key="Python" value="1532" />
+          <entry key="PLAIN_TEXT" value="94" />
+          <entry key="Python" value="2149" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="4" />
+          <entry key="py" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="4" />
+          <entry key="Python" value="7" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/task2-adaline/classification.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+            <state relative-caret-position="153">
+              <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
+        <entry file="file://$PROJECT_DIR$/task2_adaline/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2312">
-              <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
+            <state relative-caret-position="-987">
+              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+              <folding>
+                <element signature="e#640#672#0" />
+                <element signature="e#3529#3784#0" />
+                <element signature="e#3830#4094#0" />
+                <element signature="e#4126#5860#0" />
+                <element signature="e#9411#11247#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/task2_adaline/classification.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -118,6 +136,7 @@
       <find>weights</find>
       <find>(window</find>
       <find>labeels</find>
+      <find>pos-range</find>
     </findStrings>
     <replaceStrings>
       <replace>append</replace>
@@ -129,11 +148,14 @@
       <replace>ts_x2</replace>
       <replace>ts_x1</replace>
       <replace>labels</replace>
+      <replace>pos-range</replace>
+      <replace>pos_range</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="MerhanElSaid &lt;48103903+merhanelsaid@users.noreply.github.com&gt;" />
         <option value="maioy97 &lt;mai.algendyfcis@gmail.com&gt;" />
       </list>
     </option>
@@ -142,9 +164,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/task1/GUI.py" />
         <option value="$PROJECT_DIR$/task1/classification.py" />
         <option value="$PROJECT_DIR$/task2-adaline/classification.py" />
+        <option value="$PROJECT_DIR$/task1/GUI.py" />
+        <option value="$PROJECT_DIR$/task2_adaline/GUI.py" />
+        <option value="$PROJECT_DIR$/task2_adaline/classification.py" />
       </list>
     </option>
   </component>
@@ -168,7 +192,7 @@
             <path>
               <item name="neuralnetworks-tasks" type="b2602c69:ProjectViewProjectNode" />
               <item name="neuralnetworks-tasks" type="462c0819:PsiDirectoryNode" />
-              <item name="task2-adaline" type="462c0819:PsiDirectoryNode" />
+              <item name="task2_adaline" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -201,7 +225,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.GUI (1)">
+    <configuration name="GUI (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="neuralnetwork tasks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task2_adaline" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task2_adaline/GUI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="neuralnetwork tasks" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -223,8 +268,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.GUI" />
+      <item itemvalue="Python.GUI (1)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GUI (1)" />
         <item itemvalue="Python.GUI" />
       </list>
     </recent_temporary>
@@ -261,19 +311,26 @@
       <option name="project" value="LOCAL" />
       <updated>1552211615360</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="task 2 ui edit">
+      <created>1552293114271</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1552293114271</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32903227" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32903227" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -294,7 +351,8 @@
     <MESSAGE value="gui looks ok for now" />
     <MESSAGE value="working , but plot points are too akward" />
     <MESSAGE value="finally !!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="finally !!!!" />
+    <MESSAGE value="task 2 ui edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="task 2 ui edit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -313,6 +371,16 @@
           <url>file://$PROJECT_DIR$/task1/classification.py</url>
           <line>35</line>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task2_adaline/classification.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task2_adaline/classification.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -398,13 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2312">
-          <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/task1/classification.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-354">
@@ -412,10 +473,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/task2-adaline/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/task1/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
-          <caret line="98" column="35" lean-forward="true" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
+          <caret line="36" column="22" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="22" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
             <element signature="e#7169#8345#0" />
@@ -423,10 +491,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task2-adaline/classification.py">
+    <entry file="file://$PROJECT_DIR$/task1/IrisData.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+        <state relative-caret-position="153">
+          <caret line="136" column="21" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task2_adaline/GUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-987">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+          <folding>
+            <element signature="e#640#672#0" />
+            <element signature="e#3529#3784#0" />
+            <element signature="e#3830#4094#0" />
+            <element signature="e#4126#5860#0" />
+            <element signature="e#9411#11247#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task2_adaline/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
         </state>
       </provider>
     </entry>

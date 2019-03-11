@@ -5,7 +5,6 @@ import numpy as np
 from task2_adaline import classification
 
 
-
 class GUI:
     window = tk.Tk()
     class_names = ["Iris-setosa", "Iris-versicolor", "Iris-virginica"]
@@ -14,13 +13,13 @@ class GUI:
     lstbx_class = ''
     lstbx_feature = ''
     txtbx_rate = ''
-    txtbx_Thresh = ''
+    txtbx_thresh = ''
     chbttn_bias = ''
     selection = ''
     selectionf = ''
     bias = tk.IntVar()
     rate = tk.StringVar()
-    epochs = tk.StringVar()
+    threshold = tk.StringVar()
     selected_classes = [0, 1]
     selected_features = [0, 1]
 
@@ -34,7 +33,7 @@ class GUI:
         print("classes:", self.selected_classes)
         self.selected_features = self.lstbx_feature.curselection()
         print("features:", self.selected_features)
-        l_Thresh = int(self.txtbx_Thresh.get())
+        l_thresh = float(self.threshold.get())
         l_bias = int(self.bias.get())
         l_rate = float(self.rate.get())
         # call read data with said classes and features
@@ -65,7 +64,7 @@ class GUI:
         test_labels = np.array(labels[30:50].astype(int))
         test_labels = np.append(test_labels, labels[80::].astype(int))
 
-        weights = self.module.train(train_labels, l_Thresh, l_bias, tr_x1, tr_x2, l_rate)
+        weights = self.module.train(train_labels, l_thresh, l_bias, tr_x1, tr_x2, l_rate)
         # get line points
         decision_line = []
         x = max(tr_x2)
@@ -110,15 +109,13 @@ class GUI:
         lbl_class = tk.Label(self.window, text="Pick classes and features :")
         lbl_class.place(x=25, y=25)
 
-        self.lstbx_class = tk.Listbox(self.window, selectmode="multiple", exportselection=0,
-                                      listvariable=self.selected_classes)
+        self.lstbx_class = tk.Listbox(self.window, selectmode="multiple", exportselection=0)
         self.lstbx_class.place(x=25, y=50)
         self.lstbx_class.bind("<ButtonRelease-1>", self.callback)
         for item in self.class_names:
             self.lstbx_class.insert('end', item)
 
         self.lstbx_feature = tk.Listbox(self.window, selectmode="multiple", exportselection=0)
-                                        #, listvariable=self.selected_features)
         self.lstbx_feature.place(x=150, y=50)
         self.lstbx_feature.bind("<ButtonRelease-1>", self.callback_features)
         for item in self.features_list:
@@ -129,10 +126,10 @@ class GUI:
         self.txtbx_rate = tk.Entry(self.window, textvariable=self.rate)
         self.txtbx_rate.place(x=375, y=50)
 
-        lbl_epochs = tk.Label(self.window, text="epochs")
-        lbl_epochs.place(x=300, y=75)
-        self.txtbx_epochs = tk.Entry(self.window, textvariable=self.epochs)
-        self.txtbx_epochs.place(x=375, y=75)
+        lbl_thresh = tk.Label(self.window, text="thresh")
+        lbl_thresh.place(x=300, y=75)
+        self.txtbx_thresh = tk.Entry(self.window, textvariable=self.threshold)
+        self.txtbx_thresh.place(x=375, y=75)
 
         lbl_bias = tk.Label(self.window, text="bias")
         lbl_bias.place(x=300, y=100)
@@ -289,7 +286,7 @@ def test_training_only():
     print(conmat)
 
 
-#test_training_only()
+#  test_training_only()
 window = GUI()
 '''GUI.plot_class(GUI, 0, 1)  # x1 x2
 GUI.plot_class(GUI, 0, 2)  # x1 x3
@@ -297,6 +294,3 @@ GUI.plot_class(GUI, 0, 3)  # x1 x4
 GUI.plot_class(GUI, 1, 2)  # x2 x3
 GUI.plot_class(GUI, 1, 3)  # x2 x4
 GUI.plot_class(GUI, 2, 3)  # x3 x4'''
-
-
-
