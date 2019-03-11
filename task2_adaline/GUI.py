@@ -1,8 +1,8 @@
 import tkinter as tk
-import  tkinter.messagebox
+import tkinter.messagebox
 import matplotlib.pyplot as plt
 import numpy as np
-from task1 import classification
+from task2_adaline import classification
 
 
 
@@ -14,7 +14,7 @@ class GUI:
     lstbx_class = ''
     lstbx_feature = ''
     txtbx_rate = ''
-    txtbx_epochs = ''
+    txtbx_Thresh = ''
     chbttn_bias = ''
     selection = ''
     selectionf = ''
@@ -34,7 +34,7 @@ class GUI:
         print("classes:", self.selected_classes)
         self.selected_features = self.lstbx_feature.curselection()
         print("features:", self.selected_features)
-        l_epochs = int(self.txtbx_epochs.get())
+        l_Thresh = int(self.txtbx_Thresh.get())
         l_bias = int(self.bias.get())
         l_rate = float(self.rate.get())
         # call read data with said classes and features
@@ -65,7 +65,7 @@ class GUI:
         test_labels = np.array(labels[30:50].astype(int))
         test_labels = np.append(test_labels, labels[80::].astype(int))
 
-        weights = self.module.train(train_labels, l_epochs, l_bias, tr_x1, tr_x2, l_rate)
+        weights = self.module.train(train_labels, l_Thresh, l_bias, tr_x1, tr_x2, l_rate)
         # get line points
         decision_line = []
         x = max(tr_x2)
