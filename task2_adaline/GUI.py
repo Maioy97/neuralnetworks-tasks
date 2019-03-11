@@ -83,7 +83,7 @@ class GUI:
         conmat, error = self.module.test(test_labels, ts_1, ts_2)
         # show accuracy
         accuracy = (1 - error)*100
-        msg_str = "model is ,", accuracy," % accurate"
+        msg_str = "model is ,"+ accuracy + " % accurate"
         msg = tk.messagebox.showinfo("model accuracy", msg_str)
         print(conmat)
         self.plot_class_([feature1, feature2], x1features, x2features, decision_line, class_names)
