@@ -55,9 +55,9 @@ class tr:
                 #  if condition_var < pos_range and condition_var > - pos_range: # condition
                 # too little change
                 counter += 1
-            print("end of epoch:", epoch, "mse =", mse, "counter:", counter)
+            #print("end of epoch:", epoch, "mse =", mse, "counter:", counter)
             epoch += 1
-        print("mse:", mse)
+        print("mse:", mse, "number of epochs:", epoch)
         return self.weights
 
     def test(self, labels, x1, x2):

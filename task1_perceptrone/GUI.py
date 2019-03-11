@@ -1,9 +1,8 @@
 import tkinter as tk
-import  tkinter.messagebox
+import tkinter.messagebox
 import matplotlib.pyplot as plt
 import numpy as np
-from task1 import classification
-
+from task1_perceptrone import classification
 
 
 class GUI:
@@ -118,7 +117,7 @@ class GUI:
             self.lstbx_class.insert('end', item)
 
         self.lstbx_feature = tk.Listbox(self.window, selectmode="multiple", exportselection=0)
-                                        #, listvariable=self.selected_features)
+
         self.lstbx_feature.place(x=150, y=50)
         self.lstbx_feature.bind("<ButtonRelease-1>", self.callback_features)
         for item in self.features_list:
@@ -246,8 +245,8 @@ def test_training_only():
     # organise data : divide it into train and test data
     x1features = np.array(x1features).astype(float)
 
-    tr_x1 = np.array(x1features[0:31])   # .astype(float))
-    tr_x1 = np.append(tr_x1, x1features[50:81])  # .astype(float))
+    tr_x1 = np.array(x1features[0:31])
+    tr_x1 = np.append(tr_x1, x1features[50:81])
 
     ts_1 = np.array(x1features[31:50].astype(float))
     ts_1 = np.append(ts_1, x1features[81::].astype(float))
