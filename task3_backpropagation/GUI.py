@@ -2,7 +2,7 @@ import tkinter as tk
 import tkinter.messagebox
 import matplotlib.pyplot as plt
 import numpy as np
-from task2_adaline import classification
+from task3_backpropagation import classification
 
 
 class GUI:
