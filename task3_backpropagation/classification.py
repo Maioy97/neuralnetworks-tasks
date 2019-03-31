@@ -4,12 +4,15 @@ import numpy as np
 class BackPropagation:
     weight = {} # []
     bias = 1
+    layer_error={}
+    net_Input={}
     num_layers = 1
     learning_rate = .1
     function_number = 0
-
+    layers_shape=[]
     def __init__(self, num_layers, layer_shapes, bias):
         layer_shapes.append(3)
+        self.layers_shape=layer_shapes
         self.bias = bias
         self.num_layers = num_layers
         # should be changed to receive the desired network shape and initialise the weight values in it
@@ -17,12 +20,13 @@ class BackPropagation:
             self.weights[0] = np.random.rand(4, layer_shapes[0])  # loop over layer matrix s and initialise them
             for i in range(0, num_layers):
                 self.weight[i+1] = np.random.rand(layer_shapes[i], layer_shapes[i+1])
-
-        if bias == 1:
-            self.weights[0] = np.random.rand(4, layer_shapes[0])  # loop over layer matrix s and initialise them
+                self.net_Input[i]=np.empty((layer_shapes[i]))
+                self.layer_error[i]=np.empty((layer_shapes[i]))
+            self.weights[0] = np.random.rand(5, layer_shapes[0])  # loop over layer matrix s and initialise them
             for i in range(0, num_layers):
-                self.weight[i+1] = np.random.rand(layer_shapes[i], layer_shapes[i+1])
-
+                self.weight[i+1] = np.random.rand(layer_shapes[i]+1, layer_shapes[i+1])
+                self.net_Input[i] = np.empty((layer_shapes[i]))
+                self.layer_error[i] = np.empty((layer_shapes[i]))
         print(self.weights)  # remove when done
 
     def sigmoid(self, num):
@@ -36,9 +40,24 @@ class BackPropagation:
     def gradient(self, num):
         return num * (1-num)
 
+    def activation_func(self,net):
+        a =1
+        if self.function_number==0:
+           return ((1 - np.exp(-a * net)) / (1 + np.exp(-a * net)))
+        else:
+            return (1 / (1 + np.exp(-a * net)))
+
+
     def network_output(self, f1, f2, f3, f4):
+        # Calculate the dot product between the inputs & the weights
+
         for i in range(0, self.num_layers+2):
+            self.net_Input[i] = np.dot([f1, f2, f3, f4], self.weight[i])
+        #
+        self.net_Input[self.num_layers+1]=self.activation_func(self.net_Input[self.num_layers+1])
             print("network output")
+
+
 
     def calculate_error(self, label):
         #  go through the network backward
@@ -61,13 +80,19 @@ class BackPropagation:
             for j in range(0, n):
                 # phase 1 : forward phase, get Y
                 self.network_output(x1[j], x2[j], x3[j], x4[j])
+
                 # phase 2 : backwards phase,error
                 self.calculate_error(labels[j])
                 # phase 3 : update weights
 
             print(" ")
 
-        # return self.weights
+        # return self.weights matOfNeur=[]
+        # for k in range(1,self.num_layers+1):
+        #                     for s in range(0,self.layers_shape[k]):
+        #                         for h in range(0,self.layers_shape[k]):
+        #                             matOfNeur[k*s+s]+=self.weight[k][h]*matOfNeur[(k-1)*h+h]
+        #                 matOfNeur[len(matOfNeur)]
 
     def test(self, labels, x1, x2, x3, x4):
         miss = 0
