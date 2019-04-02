@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="145eec13-1637-4157-baa3-c5280c047f8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task3_backpropagation/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/task3_backpropagation/classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task3_backpropagation/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/task3_backpropagation/GUI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,24 +15,25 @@
     <session id="1678024678">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.70" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1920" />
-          <entry key="txt" value="79" />
+          <entry key="py" value="1991" />
+          <entry key="txt" value="143" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="79" />
-          <entry key="Python" value="1920" />
+          <entry key="PLAIN_TEXT" value="143" />
+          <entry key="Python" value="1991" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -60,34 +61,31 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/task3_backpropagation/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="241" column="32" selection-start-line="241" selection-start-column="32" selection-end-line="241" selection-end-column="32" />
+            <state relative-caret-position="295">
+              <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#4145#5728#0" />
-                <element signature="e#5878#6402#0" />
-                <element signature="e#6460#6962#0" />
-                <element signature="e#7037#8213#0" />
+                <element signature="e#5719#6243#0" />
+                <element signature="e#6319#6821#0" />
+                <element signature="e#6894#8070#0" />
+                <element signature="e#9279#11115#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task3_backpropagation/classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+            <state relative-caret-position="238">
+              <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="53" />
               <folding>
-                <element signature="e#48#5875#0" />
-                <element signature="e#291#1391#0" />
-                <element signature="e#1364#1405#0" />
-                <element signature="e#1633#1803#0" />
-                <element signature="e#2361#2836#0" />
-                <element signature="e#3170#3584#0" />
+                <element signature="e#4513#4662#0" />
+                <element signature="e#4716#5485#0" />
+                <element signature="e#5510#6143#0" />
               </folding>
             </state>
           </provider>
@@ -154,8 +152,8 @@
         <option value="$PROJECT_DIR$/task3_backprobagation/dummy.py" />
         <option value="$PROJECT_DIR$/task3_backprobagation/GUI.py" />
         <option value="$PROJECT_DIR$/task3_backprobagation/classification.py" />
-        <option value="$PROJECT_DIR$/task3_backpropagation/GUI.py" />
         <option value="$PROJECT_DIR$/task3_backpropagation/classification.py" />
+        <option value="$PROJECT_DIR$/task3_backpropagation/GUI.py" />
       </list>
     </option>
   </component>
@@ -171,6 +169,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -197,12 +196,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/task3_backpropagation/GUI.py" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -225,21 +223,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.classification">
+  <component name="RunManager" selected="Python.GUI (1)">
     <configuration name="GUI (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="neuralnetwork tasks" />
+      <module name="neuralnetworks-tasks" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task2_adaline" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task3_backpropagation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task2_adaline/GUI.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task3_backpropagation/GUI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -313,17 +311,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest in GUI.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="neuralnetworks-tasks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task3_backpropagation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/task3_backpropagation/GUI.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.GUI (1)" />
       <item itemvalue="Python.GUI" />
       <item itemvalue="Python.dummy" />
       <item itemvalue="Python.classification" />
+      <item itemvalue="Python tests.pytest in GUI.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GUI (1)" />
+        <item itemvalue="Python tests.pytest in GUI.py" />
         <item itemvalue="Python.classification" />
         <item itemvalue="Python.dummy" />
-        <item itemvalue="Python.GUI (1)" />
         <item itemvalue="Python.GUI" />
       </list>
     </recent_temporary>
@@ -383,8 +398,20 @@
       <option name="project" value="LOCAL" />
       <updated>1554216345444</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="back propagation : model done , needs testing with real data">
+      <created>1554217932462</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1554217932462</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="pytest_in_GUI_py - 2019.04.02 at 22h 33m 43s.xml">
+      <configuration name="pytest in GUI.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="711000" />
@@ -429,7 +456,8 @@
     <MESSAGE value="task 2 ui edit" />
     <MESSAGE value="task3 : forward phase now works" />
     <MESSAGE value="task3 : train() works" />
-    <option name="LAST_COMMIT_MESSAGE" value="task3 : train() works" />
+    <MESSAGE value="back propagation : model done , needs testing with real data" />
+    <option name="LAST_COMMIT_MESSAGE" value="back propagation : model done , needs testing with real data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -458,6 +486,11 @@
           <url>file://$PROJECT_DIR$/task3_backpropagation/classification.py</url>
           <line>83</line>
           <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/task3_backpropagation/GUI.py</url>
+          <line>158</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -610,20 +643,6 @@
     <entry file="file://$PROJECT_DIR$/task3_backprobagation/dummy.py" />
     <entry file="file://$PROJECT_DIR$/task3_backprobagation/GUI.py" />
     <entry file="file://$PROJECT_DIR$/task3_backprobagation/classification.py" />
-    <entry file="file://$PROJECT_DIR$/task3_backpropagation/GUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="241" column="32" selection-start-line="241" selection-start-column="32" selection-end-line="241" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#4145#5728#0" />
-            <element signature="e#5878#6402#0" />
-            <element signature="e#6460#6962#0" />
-            <element signature="e#7037#8213#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -640,15 +659,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task3_backpropagation/classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+        <state relative-caret-position="238">
+          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="53" />
           <folding>
-            <element signature="e#48#5875#0" />
-            <element signature="e#291#1391#0" />
-            <element signature="e#1364#1405#0" />
-            <element signature="e#1633#1803#0" />
-            <element signature="e#2361#2836#0" />
-            <element signature="e#3170#3584#0" />
+            <element signature="e#4513#4662#0" />
+            <element signature="e#4716#5485#0" />
+            <element signature="e#5510#6143#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task3_backpropagation/GUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5719#6243#0" />
+            <element signature="e#6319#6821#0" />
+            <element signature="e#6894#8070#0" />
+            <element signature="e#9279#11115#0" />
           </folding>
         </state>
       </provider>

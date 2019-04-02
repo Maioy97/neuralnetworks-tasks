@@ -7,9 +7,7 @@ from task3_backpropagation import classification
 
 class GUI:
     window = tk.Tk()
-    #class_names = ["Iris-setosa", "Iris-versicolor", "Iris-virginica"]
-    #features_list = ["X1", "X2", "X3", "X4"]
-    module = classification.tr()
+    module = classification.BackPropagation()
     txtbx_numOfLayers = ''
     txtbx_numOfNeurons = ''
     txtbx_rate = ''
@@ -75,12 +73,13 @@ class GUI:
         labels = np.array(labels).astype(int)
         train_labels = np.array(labels[0:30].astype(int))
         train_labels = np.append(train_labels, labels[50:80].astype(int))
-        train_labels = np.append(train_labels,labels[100:130])
+        train_labels = np.append(train_labels, labels[100:130])
 
         test_labels = np.array(labels[30:50].astype(int))
         test_labels = np.append(test_labels, labels[80:100].astype(int))
-        test_labels = np.append(test_labels,labels[130:150])
+        test_labels = np.append(test_labels, labels[130:150])
         weights = self.module.train(train_labels, numOfEpoces, l_bias, tr_x1, tr_x2,tr_x3,tr_x4, l_rate)
+        # train(self, labels, epochs, bias, x1, x2, x3, x4, lr, function_num)
         # get line points
         decision_line = []
         x = max(tr_x2)
@@ -101,12 +100,8 @@ class GUI:
         accuracy = (1 - error)*100
         msg_str = 'model is ,', accuracy, ' % accurate'
         msg = tk.messagebox.showinfo("model accuracy", msg_str)
+        # self.plot_class_([feature1, feature2], x1features, x2features, decision_line, class_names)
         print(conmat)
-        #self.plot_class_([feature1, feature2], x1features, x2features, decision_line, class_names)
-
-
-
-
 
     def setup(self):
 
@@ -120,7 +115,6 @@ class GUI:
 
         lbl_numOfNeurons = tk.Label(self.window,text="Enter Number Of Neurons Per Layer .. comma Seprate them")
         lbl_numOfNeurons.place(x=150,y=25)
-
 
         self.txtbx_numOfNeurons = tk.Entry(self.window, textvariable=self.numOfNeurons)
         self.txtbx_numOfNeurons.place(x=150, y=50)
@@ -148,7 +142,8 @@ class GUI:
     def show(self):
         self.window.mainloop()
 
-    def plot_class_(self, feature_num, feature1, feature2, decision_line, class_names):
+    @staticmethod
+    def plot_class_(feature_num, feature1, feature2, decision_line, class_names):
         # for the showing output
         plt.figure(class_names[0] + " vs " + class_names[1])
         plt.xlabel('X%d' % (feature_num[0] + 1))
@@ -178,7 +173,8 @@ class GUI:
 
         plt.show()
 
-    def read_data_(self, class1, class2, features1, features2):
+    @staticmethod
+    def read_data_( class1, class2, features1, features2):
 
         # reads data based on class number and feature number
         # reads selected features starting at row classnumber*50 till row class number*50+50
@@ -212,10 +208,11 @@ class GUI:
 
         return Xfeatures, Yfeatures, labels, class_names
 
-    def read_data(self):
+    @staticmethod
+    def read_data():
 
         # reads data based on feature number only (all classes)
-        # reads selected features starting at row classnumber*50 till row class number*50+50
+        # reads selected features starting at row class number*50 till row class number*50+50
         X1features = []
         X2features = []
         X3features = []
@@ -236,11 +233,11 @@ class GUI:
             X3features.append(float(line[2]))
             X4features.append(float(line[3]))
             if line[4] == "Iris-setosa":
-                labels.append(0)
+                labels.append([1, 0, 0])
             elif line[4] == "Iris-versicolor":
-                labels.append(1)
+                labels.append([0, 1, 0])
             elif line[4] == "Iris-virginica":
-                labels.append(2)
+                labels.append([0, 0, 1])
         return X1features, X2features, X3features, X4features, labels, class_names
 
 
