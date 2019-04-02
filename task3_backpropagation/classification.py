@@ -22,14 +22,14 @@ class BackPropagation:
             self.weights[0] = np.random.rand(4, layer_shapes[0])  # loop over layer matrix s and initialise them
             for i in range(0, num_layers):
                 self.weights[i+1] = np.random.rand(layer_shapes[i], layer_shapes[i+1])
-                self.net_Input[i] = np.empty((layer_shapes[i]))
-                self.layer_error[i] = np.empty((layer_shapes[i]))
+                self.net_Input[i] = np.empty((layer_shapes[i], 1))
+                self.layer_error[i] = np.empty((layer_shapes[i], 1))
         elif bias == 1:
             self.weights[0] = np.random.rand(5, layer_shapes[0])
             for i in range(0, num_layers):
                 self.weights[i+1] = np.random.rand(layer_shapes[i]+1, layer_shapes[i+1])
-                self.net_Input[i] = np.empty((layer_shapes[i]))
-                self.layer_error[i] = np.empty((layer_shapes[i]))
+                self.net_Input[i] = np.empty((layer_shapes[i], 1))
+                self.layer_error[i] = np.empty((layer_shapes[i], 1))
 
         self.net_Input[num_layers] = np.empty(3)  # net input for the final layer
         print(self.net_Input)
@@ -64,26 +64,28 @@ class BackPropagation:
                 self.net_Input[i-1] = np.append(1, self.net_Input[i-1])
             current_net_input = self.net_Input[i-1]
             self.net_Input[i] = np.dot(current_net_input, self.weights[i])
-            print(i)
-
+            # print(i)
         self.output_y = self.activation_func(self.net_Input[self.num_layers])
-        print("network output")
+        print("network output calculated")
 
     # use it to calculate error for each node in each layer(and save them with weights)
     def calculate_error(self, label):
-        #  go through the network backward
+        # go through the network backward
         # for the output layer calculate square error
-        # sigma at output layer = (t-y)*f'(net_input for output layer)   | num_layer+1  -> output layer
-        self.error[self.num_layers+1] = (label - self.output_y) * self.gradient(self.net_Input[self.num_layers+1])
-        for i in range(self.num_layers, 0, -1):
-            self.error[i] = np.dot(self.weights[i+1], np.transpose(self.error[i+1])) * self.gradient(self.net_Input[i])
+        # sigma at output layer = (t-y)*f'(net_input for output layer)   | num_layer -> output layer
+        self.layer_error[self.num_layers] = (label - self.output_y) * self.gradient(self.net_Input[self.num_layers])
+        for i in range(self.num_layers-1, 0, -1):
+            print(i)
+            self.layer_error[i] = np.dot(self.weights[i+1], np.transpose(self.layer_error[i+1])) * self.gradient(self.net_Input[i])
 
     def update_weights(self, current_input):
-        print("update weights")
+        print("updating weights")
         # loop forward and change weights using error previously calculated
-        self.weights[0] = self.weights[0] + self.learning_rate * self.error[0] * np.transpose(current_input)
-        for i in range(1, self.num_layers+2):
-            self.weights[i] = self.weights[i] + self.learning_rate * self.error[i] * np.transpose(self.net_Input[i-1])
+        current_input = np.transpose(current_input)
+        self.weights[0] = self.weights[0] + self.learning_rate * np.dot(current_input, np.transpose(self.layer_error[0]))
+        for i in range(1, self.num_layers+1):
+            self.weights[i] = self.weights[i] + self.learning_rate * self.layer_error[i] * np.transpose(self.net_Input[i-1])
+        print("updating weights")
 
     def train(self, labels, epochs, bias, x1, x2, x3, x4, lr, function_num):
         n = len(labels)
@@ -94,9 +96,9 @@ class BackPropagation:
         for i in range(0, epochs):
             for j in range(0, n):
                 if bias == 1:
-                    current_input = [bias, x1[j], x2[j], x3[j], x4[j]]
+                    current_input = [[bias, x1[j], x2[j], x3[j], x4[j]]]
                 elif bias == 0:
-                    current_input = [x1[j], x2[j], x3[j], x4[j]]
+                    current_input = [[x1[j], x2[j], x3[j], x4[j]]]
                 # phase 1 : forward phase, get Y
                 self.network_output(current_input)
                 # phase 2 : backwards phase, calculate error
@@ -160,6 +162,7 @@ def test_model():
     epochs = 10
     model = BackPropagation(num_layers, layer_shapes, bias)
     model.train(labels, epochs, bias, x1, x2, x3, x4, lr, 0)
+    model.test(labels, x1, x2, x3, x4)
 
 
 test_model()
