@@ -24,7 +24,7 @@ class BackPropagation:
                 self.weights[i+1] = np.random.rand(layer_shapes[i], layer_shapes[i+1])
                 self.net_Input[i] = np.empty((layer_shapes[i], 1))
                 self.layer_error[i] = np.empty((layer_shapes[i], 1))
-        elif bias == 1:
+        else:
             self.weights[0] = np.random.rand(5, layer_shapes[0])
             for i in range(0, num_layers):
                 self.weights[i+1] = np.random.rand(layer_shapes[i]+1, layer_shapes[i+1])
@@ -58,10 +58,9 @@ class BackPropagation:
     def network_output(self, current_input):
         # Calculate the dot product between the inputs & the weights
         self.net_Input[0] = np.dot(current_input, self.weights[0])
-
         for i in range(1, self.num_layers+1):
-            if self.bias == 1:
-                self.net_Input[i-1] = np.append(1, self.net_Input[i-1])
+            if self.bias != 0:
+                self.net_Input[i-1] = np.append(self.bias, self.net_Input[i-1])
             current_net_input = self.net_Input[i-1]
             self.net_Input[i] = np.dot(current_net_input, self.weights[i])
             # print(i)
@@ -95,10 +94,10 @@ class BackPropagation:
 
         for i in range(0, epochs):
             for j in range(0, n):
-                if bias == 1:
-                    current_input = [[bias, x1[j], x2[j], x3[j], x4[j]]]
-                elif bias == 0:
+                if bias == 0:
                     current_input = [[x1[j], x2[j], x3[j], x4[j]]]
+                else:
+                    current_input = [[bias, x1[j], x2[j], x3[j], x4[j]]]
                 # phase 1 : forward phase, get Y
                 self.network_output(current_input)
                 # phase 2 : backwards phase, calculate error
@@ -107,41 +106,36 @@ class BackPropagation:
                 self.update_weights(current_input)
             print(" ")
 
-        # return self.weights matOfNeur=[]
-        # for k in range(1,self.num_layers+1):
-        #                     for s in range(0,self.layers_shape[k]):
-        #                         for h in range(0,self.layers_shape[k]):
-        #                             matOfNeur[k*s+s]+=self.weights[k][h]*matOfNeur[(k-1)*h+h]
-        #                 matOfNeur[len(matOfNeur)]
+    @staticmethod
+    def max_index(vector, length):
+        max_index = 0
+        for i in range(0, length):
+            if vector[i] > vector[max_index]:
+                max_index = i
+        return max_index
 
     def test(self, labels, x1, x2, x3, x4):
+        # calculate error for the last layer only
+        # deal with labels having 3 indexes
         miss = 0
         conf_mat = np.zeros((3, 3))
         for i in range(0, len(labels)):
             # y = get y through phase1 function
-            self.network_output(x1[i], x2[i], x3[i], x4[i])
-            # calculate error for the last layer only
-            # deal with labels having 3 indexes
-
-            '''yi=0 
-            if yi != labels[i]:
+            if self.bias == 0:
+                current_input = [[x1[i], x2[i], x3[i], x4[i]]]
+            else:
+                current_input = [[self.bias, x1[i], x2[i], x3[i], x4[i]]]
+            self.network_output(current_input)
+            y = self.max_index(self.output_y, 3)
+            t = self.max_index(labels[i], 3)
+            if y == t:
+                conf_mat[y][y] += 1
+            else:
+                conf_mat[y][t] += 1
                 miss += 1
 
-            # handel 3x3 matrix
-            if labels[i] == 1 and yi == 1:
-                conf_mat[0][0] += 1
-            elif labels[i] == -1 and yi == -1:
-                conf_mat[1][1] += 1
-            elif labels[i] == -1 and yi == 1:
-                conf_mat[1][0] += 1
-            else:
-                # label = 1 y = -1
-                conf_mat[0][1] += 1
-
-        # conf_mat[0][2] = conf_mat[0][0]/(conf_mat[0][0]+conf_mat[0][1])
-        # conf_mat[1][2] = conf_mat[1][1]/(conf_mat[1][0]+conf_mat[1][1])
         total_error = miss/len(labels)
-        return conf_mat, total_error'''
+        return conf_mat, total_error
 
 
 def test_model():
@@ -162,7 +156,9 @@ def test_model():
     epochs = 10
     model = BackPropagation(num_layers, layer_shapes, bias)
     model.train(labels, epochs, bias, x1, x2, x3, x4, lr, 0)
-    model.test(labels, x1, x2, x3, x4)
+    conf, error = model.test(labels, x1, x2, x3, x4)
+    print("confusion matrix\n ", conf)
+    print("\nerror = ", error)
 
 
 test_model()
