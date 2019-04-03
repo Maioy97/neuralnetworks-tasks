@@ -15,25 +15,26 @@
     <session id="1678024678">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.70" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1991" />
-          <entry key="txt" value="143" />
+          <entry key="py" value="2304" />
+          <entry key="txt" value="174" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="143" />
-          <entry key="Python" value="1991" />
+          <entry key="PLAIN_TEXT" value="174" />
+          <entry key="Python" value="2304" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -64,14 +65,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/task3_backpropagation/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
+            <state relative-caret-position="195">
+              <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#5719#6243#0" />
-                <element signature="e#6319#6821#0" />
-                <element signature="e#6894#8070#0" />
-                <element signature="e#9279#11115#0" />
+                <element signature="e#6300#6802#0" />
+                <element signature="e#6890#8066#0" />
+                <element signature="e#9303#11139#0" />
               </folding>
             </state>
           </provider>
@@ -80,9 +80,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task3_backpropagation/classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="53" />
+            <state relative-caret-position="-593">
+              <caret line="14" column="53" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="53" />
               <folding>
+                <element signature="e#291#1381#0" />
+                <element signature="e#3179#3659#0" />
                 <element signature="e#4513#4662#0" />
                 <element signature="e#4716#5485#0" />
                 <element signature="e#5510#6143#0" />
@@ -113,6 +115,8 @@
       <find>self.weight</find>
       <find>self.weight[</find>
       <find>l_rate</find>
+      <find>numOfEpoces</find>
+      <find>numOfNeurons</find>
     </findStrings>
     <replaceStrings>
       <replace>append</replace>
@@ -128,6 +132,8 @@
       <replace>output_y</replace>
       <replace>self.weights</replace>
       <replace>self.weights[</replace>
+      <replace>numOfEpochs</replace>
+      <replace>layershapes</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -169,7 +175,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,6 +201,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -405,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1554217932462</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="back propagation : fixed labeling in gui.py">
+      <created>1554237543707</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1554237543707</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -457,7 +470,8 @@
     <MESSAGE value="task3 : forward phase now works" />
     <MESSAGE value="task3 : train() works" />
     <MESSAGE value="back propagation : model done , needs testing with real data" />
-    <option name="LAST_COMMIT_MESSAGE" value="back propagation : model done , needs testing with real data" />
+    <MESSAGE value="back propagation : fixed labeling in gui.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="back propagation : fixed labeling in gui.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -659,9 +673,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task3_backpropagation/classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="53" />
+        <state relative-caret-position="-593">
+          <caret line="14" column="53" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="53" />
           <folding>
+            <element signature="e#291#1381#0" />
+            <element signature="e#3179#3659#0" />
             <element signature="e#4513#4662#0" />
             <element signature="e#4716#5485#0" />
             <element signature="e#5510#6143#0" />
@@ -671,14 +687,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task3_backpropagation/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
+        <state relative-caret-position="195">
+          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#5719#6243#0" />
-            <element signature="e#6319#6821#0" />
-            <element signature="e#6894#8070#0" />
-            <element signature="e#9279#11115#0" />
+            <element signature="e#6300#6802#0" />
+            <element signature="e#6890#8066#0" />
+            <element signature="e#9303#11139#0" />
           </folding>
         </state>
       </provider>

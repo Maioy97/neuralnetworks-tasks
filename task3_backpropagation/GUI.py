@@ -7,19 +7,20 @@ from task3_backpropagation import classification
 
 class GUI:
     window = tk.Tk()
-    module = classification.BackPropagation()
+    module = ''
     txtbx_numOfLayers = ''
-    txtbx_numOfNeurons = ''
+    txtbx_layershapes = ''
     txtbx_rate = ''
-    txtbx_numOfEpoces = ''
+    txtbx_numOfEpochs = ''
     chbttn_bias = ''
     selection = ''
     selectionf = ''
     bias = tk.IntVar()
     rate = tk.StringVar()
-    numOfEpoces = tk.StringVar()
-    numOfLayers = ''
-    numOfNeurons = ''
+    numOfEpochs = tk.IntVar()
+    numOfLayers = tk.IntVar()
+    layershapes = tk.StringVar()
+    functionNum = tk.IntVar()
 
     def __init__(self):
         self.setup()
@@ -27,38 +28,48 @@ class GUI:
 
     def bttn_start_onclick(self, a):
         # check which classes and features are selected
-        numOfEpoces = float(self.numOfEpoces.get())
+        shapes_list = []
+        l_numOfEpochs = int(self.numOfEpochs.get())
         l_bias = int(self.bias.get())
         l_rate = float(self.rate.get())
+        l_shapes_string = self.layershapes.get()
+        l_shapes_string = l_shapes_string.split(',')
+        l_functionnum = self.functionNum.get()
+        l_numoflayers = self.numOfLayers.get()
+        for shape in l_shapes_string:
+            r = int(shape)
+            shapes_list = np.append(shapes_list, r)
+        self.module = classification.BackPropagation(l_numoflayers, shapes_list, l_bias)
+
         # call read data with said classes and features
-        x1features, x2features, x3features,x4features, labels, class_names = self.read_data_()
+        x1features, x2features, x3features, x4features, labels, class_names = self.read_data()
+
         # organise data : divide it into train and test data
         x1features = np.array(x1features)
-
         tr_x1 = np.array(x1features[0:30])
         tr_x1 = np.append(tr_x1, x1features[50:80])
         tr_x1 = np.append(tr_x1, x1features[100:130])
 
-        ts_1 = np.array(x1features[30:50].astype(float))
-        ts_1 = np.append(ts_1, x1features[80:100].astype(float))
-        ts_1=np.append(ts_1,x1features[130:150])
+        ts_1 = np.array(x1features[30:50])
+        ts_1 = np.append(ts_1, x1features[80:100])
+        ts_1 = np.append(ts_1, x1features[130:150])
 
-        x2features = np.array(x2features).astype(float)
-        tr_x2 = np.array(x2features[0:30].astype(float))
-        tr_x2 = np.append(tr_x2, x2features[50:80].astype(float))
+        x2features = np.array(x2features)
+        tr_x2 = np.array(x2features[0:30])
+        tr_x2 = np.append(tr_x2, x2features[50:80])
         tr_x2 = np.append(tr_x2, x1features[100:130])
 
-        ts_2 = np.array(x2features[30:50].astype(float))
-        ts_2 = np.append(ts_2, x2features[80:100].astype(float))
-        ts_2 = np.append(ts_2, x2features[130:150].astype(float))
+        ts_2 = np.array(x2features[30:50])
+        ts_2 = np.append(ts_2, x2features[80:100])
+        ts_2 = np.append(ts_2, x2features[130:150])
 
         x3features = np.array(x3features)
         tr_x3 = np.array(x3features[0:30])
         tr_x3 = np.append(tr_x3, x3features[50:80])
         tr_x3 = np.append(tr_x3, x3features[100:130])
 
-        ts_3 = np.array(x3features[30:50].astype(float))
-        ts_3 = np.append(ts_3, x3features[80:100].astype(float))
+        ts_3 = np.array(x3features[30:50])
+        ts_3 = np.append(ts_3, x3features[80:100])
         ts_3 = np.append(ts_3, x3features[130:150])
 
         x4features = np.array(x4features)
@@ -66,45 +77,29 @@ class GUI:
         tr_x4 = np.append(tr_x4, x4features[50:80])
         tr_x4 = np.append(tr_x4, x4features[100:130])
 
-        ts_4 = np.array(x4features[30:50].astype(float))
-        ts_4 = np.append(ts_4, x4features[80:100].astype(float))
+        ts_4 = np.array(x4features[30:50])
+        ts_4 = np.append(ts_4, x4features[80:100])
         ts_4 = np.append(ts_4, x4features[130:150])
 
         labels = np.array(labels).astype(int)
-        train_labels = np.array(labels[0:30].astype(int))
-        train_labels = np.append(train_labels, labels[50:80].astype(int))
+        train_labels = np.array(labels[0:30])
+        train_labels = np.append(train_labels, labels[50:80])
         train_labels = np.append(train_labels, labels[100:130])
 
-        test_labels = np.array(labels[30:50].astype(int))
-        test_labels = np.append(test_labels, labels[80:100].astype(int))
+        test_labels = np.array(labels[30:50])
+        test_labels = np.append(test_labels, labels[80:100])
         test_labels = np.append(test_labels, labels[130:150])
-        weights = self.module.train(train_labels, numOfEpoces, l_bias, tr_x1, tr_x2,tr_x3,tr_x4, l_rate)
-        # train(self, labels, epochs, bias, x1, x2, x3, x4, lr, function_num)
-        # get line points
-        decision_line = []
-        x = max(tr_x2)
-        # x2 = - (w[1] x1 + b)/w[2]
-        y = -(weights[2]*x + weights[0]*l_bias) / weights[1]
-        decision_line.append((x, y))
-
-        x = min(tr_x2)
-        y = -(weights[2] * x + weights[0]*l_bias) / weights[1]
-        decision_line.append((x, y))
-        print(decision_line)
-        # output graph (decision boundary visible)
-        feature1 = self.selected_features[0]
-        feature2 = self.selected_features[1]
+        # -------------------------
+        self.module.train(train_labels, l_numOfEpochs, tr_x1, tr_x2, tr_x3, tr_x4, l_rate, l_functionnum)
         # call test and output the percentage
-        conmat, error = self.module.test(test_labels, ts_1, ts_2,ts_3,ts_4)
+        confusion_mat, error = self.module.test(test_labels, ts_1, ts_2, ts_3, ts_4)
         # show accuracy
         accuracy = (1 - error)*100
         msg_str = 'model is ,', accuracy, ' % accurate'
         msg = tk.messagebox.showinfo("model accuracy", msg_str)
-        # self.plot_class_([feature1, feature2], x1features, x2features, decision_line, class_names)
-        print(conmat)
+        print(confusion_mat)
 
     def setup(self):
-
         self.window.geometry("550x300")
 
         lbl_numOfLayers = tk.Label(self.window, text="Enter Number Of Layers")
@@ -113,21 +108,26 @@ class GUI:
         self.txtbx_numOfLayers = tk.Entry(self.window, textvariable=self.numOfLayers)
         self.txtbx_numOfLayers.place(x=25, y=50)
 
-        lbl_numOfNeurons = tk.Label(self.window,text="Enter Number Of Neurons Per Layer .. comma Seprate them")
-        lbl_numOfNeurons.place(x=150,y=25)
+        lbl_layershapes = tk.Label(self.window, text="Enter Number Of Neurons Per Layer .. comma Seprate them")
+        lbl_layershapes.place(x=25, y=125)
 
-        self.txtbx_numOfNeurons = tk.Entry(self.window, textvariable=self.numOfNeurons)
-        self.txtbx_numOfNeurons.place(x=150, y=50)
+        self.txtbx_layershapes = tk.Entry(self.window, textvariable=self.layershapes)
+        self.txtbx_layershapes.place(x=25, y=150)
+
+        lbl_func = tk.Label(self.window, text="Enter 1 for Sigmoid & 0 for Hyperbolic")
+        lbl_func.place(x=25, y=75)
+        self.txtbx_func = tk.Entry(self.window, textvariable=self.functionNum)
+        self.txtbx_func.place(x=25, y=100)
 
         lbl_rate = tk.Label(self.window, text="learning rate")
         lbl_rate.place(x=300, y=50)
         self.txtbx_rate = tk.Entry(self.window, textvariable=self.rate)
         self.txtbx_rate.place(x=375, y=50)
 
-        lbl_nEpoces = tk.Label(self.window, text="Epochesnum")
+        lbl_nEpoces = tk.Label(self.window, text="Epochs:")
         lbl_nEpoces.place(x=300, y=75)
-        self.txtbx_numOfEpoces = tk.Entry(self.window, textvariable=self.numOfEpoces)
-        self.txtbx_numOfEpoces.place(x=375, y=75)
+        self.txtbx_numOfEpochs = tk.Entry(self.window, textvariable=self.numOfEpochs)
+        self.txtbx_numOfEpochs.place(x=375, y=75)
 
         lbl_bias = tk.Label(self.window, text="bias")
         lbl_bias.place(x=300, y=100)
@@ -174,7 +174,7 @@ class GUI:
         plt.show()
 
     @staticmethod
-    def read_data_( class1, class2, features1, features2):
+    def read_data_(class1, class2, features1, features2):
 
         # reads data based on class number and feature number
         # reads selected features starting at row classnumber*50 till row class number*50+50
@@ -210,9 +210,7 @@ class GUI:
 
     @staticmethod
     def read_data():
-
-        # reads data based on feature number only (all classes)
-        # reads selected features starting at row class number*50 till row class number*50+50
+        # reads all data (all classes)
         X1features = []
         X2features = []
         X3features = []
@@ -222,9 +220,7 @@ class GUI:
         fp = open('IrisData.txt')  # Open file on read mode
         lines = fp.read().split("\n")  # Create a list containing all lines
         fp.close()  # Close file
-        class_names = ["Iris-setosa", "Iris-versicolor", "Iris-virginica"]
         for line in lines:
-
             line = line.split(',')
             if line[0] == "X1":
                 continue
@@ -238,7 +234,7 @@ class GUI:
                 labels.append([0, 1, 0])
             elif line[4] == "Iris-virginica":
                 labels.append([0, 0, 1])
-        return X1features, X2features, X3features, X4features, labels, class_names
+        return X1features, X2features, X3features, X4features, labels
 
 
 def test_training_only():

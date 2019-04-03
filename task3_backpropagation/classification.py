@@ -13,8 +13,8 @@ class BackPropagation:
     output_y = []
 
     def __init__(self, num_layers, layer_shapes, bias):
-        layer_shapes.append(3)
-        self.layers_shape = layer_shapes
+        layer_shapes = np.append(layer_shapes, 3)
+        self.layers_shapes = layer_shapes
         self.bias = bias
         self.num_layers = num_layers
         # should be changed to receive the desired network shape and initialise the weight values in it
