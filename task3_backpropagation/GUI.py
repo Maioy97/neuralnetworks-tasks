@@ -36,68 +36,57 @@ class GUI:
         l_shapes_string = l_shapes_string.split(',')
         l_functionnum = self.functionNum.get()
         l_numoflayers = self.numOfLayers.get()
-        for shape in l_shapes_string:
-            r = int(shape)
-            shapes_list.append(r)
-        self.module = classification.BackPropagation(l_numoflayers, shapes_list, l_bias)
+        if l_numoflayers == len(l_shapes_string):
+            for shape in l_shapes_string:
+                r = int(shape)
+                shapes_list.append(r)
 
-        # call read data with said classes and features
-        x1features, x2features, x3features, x4features, labels = self.read_data()
+            self.module = classification.BackPropagation(l_numoflayers, shapes_list, l_bias)
 
-        # organise data : divide it into train and test data
-        x1features = np.array(x1features)
-        tr_x1 = np.array(x1features[0:30])
-        tr_x1 = np.append(tr_x1, x1features[50:80])
-        tr_x1 = np.append(tr_x1, x1features[100:130])
+            # call read data with said classes and features
+            x1features, x2features, x3features, x4features, labels = self.read_data()
 
-        ts_1 = np.array(x1features[30:50])
-        ts_1 = np.append(ts_1, x1features[80:100])
-        ts_1 = np.append(ts_1, x1features[130:150])
+            # organise data : divide it into train and test data
+            x1features = np.array(x1features)
+            tr_x1, ts_1 = x1features[0:30], x1features[30:50]
+            tr_x1, ts_1 = np.append(tr_x1, x1features[50:80]), np.append(ts_1, x1features[80:100])
+            tr_x1, ts_1 = np.append(tr_x1, x1features[100:130]), np.append(ts_1, x1features[130:150])
 
-        x2features = np.array(x2features)
-        tr_x2 = np.array(x2features[0:30])
-        tr_x2 = np.append(tr_x2, x2features[50:80])
-        tr_x2 = np.append(tr_x2, x1features[100:130])
+            x2features = np.array(x2features)
+            tr_x2, ts_2 = x2features[0:30], x2features[30:50]
+            tr_x2, ts_2 = np.append(tr_x2, x2features[50:80]), np.append(ts_2, x2features[80:100])
+            tr_x2, ts_2 = np.append(tr_x2, x1features[100:130]), np.append(ts_2, x2features[130:150])
 
-        ts_2 = np.array(x2features[30:50])
-        ts_2 = np.append(ts_2, x2features[80:100])
-        ts_2 = np.append(ts_2, x2features[130:150])
+            x3features = np.array(x3features)
+            tr_x3, ts_3 = x3features[0:30], x3features[30:50]
+            tr_x3, ts_3 = np.append(tr_x3, x3features[50:80]), np.append(ts_3, x3features[80:100])
+            tr_x3, ts_3 = np.append(tr_x3, x3features[100:130]), np.append(ts_3, x3features[130:150])
 
-        x3features = np.array(x3features)
-        tr_x3 = np.array(x3features[0:30])
-        tr_x3 = np.append(tr_x3, x3features[50:80])
-        tr_x3 = np.append(tr_x3, x3features[100:130])
+            x4features = np.array(x4features)
+            tr_x4, ts_4 = x4features[0:30], x4features[30:50]
+            tr_x4, ts_4 = np.append(tr_x4, x4features[50:80]), np.append(ts_4, x4features[80:100])
+            tr_x4, ts_4 = np.append(tr_x4, x4features[100:130]), np.append(ts_4, x4features[130:150])
 
-        ts_3 = np.array(x3features[30:50])
-        ts_3 = np.append(ts_3, x3features[80:100])
-        ts_3 = np.append(ts_3, x3features[130:150])
+            labels = np.array(labels)
+            train_labels = labels[0:30, :], labels[50:80, :], labels[130:150, :]
+            train_labels, test_labels = labels[0:30, :], labels[30:50, :]
+            train_labels, test_labels = np.append(train_labels, labels[50:80, :], axis=0),\
+                                        np.append(test_labels, labels[80:100, :], axis=0)
+            train_labels, test_labels = np.append(train_labels, labels[100:130, :], axis=0),\
+                                        np.append(test_labels, labels[130:150, :], axis=0)
 
-        x4features = np.array(x4features)
-        tr_x4 = np.array(x4features[0:30])
-        tr_x4 = np.append(tr_x4, x4features[50:80])
-        tr_x4 = np.append(tr_x4, x4features[100:130])
-
-        ts_4 = np.array(x4features[30:50])
-        ts_4 = np.append(ts_4, x4features[80:100])
-        ts_4 = np.append(ts_4, x4features[130:150])
-
-        labels = np.array(labels).astype(int)
-        train_labels = np.array(labels[0:30])
-        train_labels = np.append(train_labels, labels[50:80])
-        train_labels = np.append(train_labels, labels[100:130])
-
-        test_labels = np.array(labels[30:50])
-        test_labels = np.append(test_labels, labels[80:100])
-        test_labels = np.append(test_labels, labels[130:150])
-        # -------------------------
-        self.module.train(train_labels, l_numOfEpochs, tr_x1, tr_x2, tr_x3, tr_x4, l_rate, l_functionnum)
-        # call test and output the percentage
-        confusion_mat, error = self.module.test(test_labels, ts_1, ts_2, ts_3, ts_4)
-        # show accuracy
-        accuracy = (1 - error)*100
-        msg_str = 'model is ,', accuracy, ' % accurate'
-        msg = tk.messagebox.showinfo("model accuracy", msg_str)
-        print(confusion_mat)
+            # -------------------------
+            self.module.train(train_labels, l_numOfEpochs, tr_x1, tr_x2, tr_x3, tr_x4, l_rate, l_functionnum)
+            # call test and output the percentage
+            confusion_mat, error = self.module.test(test_labels, ts_1, ts_2, ts_3, ts_4)
+            # show accuracy
+            accuracy = (1 - error)*100
+            msg_str = 'model is ,', accuracy, ' % accurate'
+            msg = tk.messagebox.showinfo("model accuracy", msg_str)
+            print(confusion_mat)
+        else:
+            str = "number of layer and layer neurons per layer don't match , please fix it and try again"
+            msg = tk.messagebox.showinfo("layer specifics", str)
 
     def setup(self):
         self.window.geometry("550x300")

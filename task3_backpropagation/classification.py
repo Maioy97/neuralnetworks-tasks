@@ -75,8 +75,8 @@ class BackPropagation:
         self.layer_error[self.num_layers] = (label - self.output_y) * self.gradient(self.net_Input[self.num_layers])
         for i in range(self.num_layers-1, 0, -1):
             print(i)
-            self.layer_error[i] = np.dot(self.weights[i+1], np.transpose(self.layer_error[i+1]))
-            self.layer_error[i] = np.transpose(self.layer_error[i]) * np.transpose(self.gradient(self.net_Input[i]))
+            self.layer_error[i] = np.dot(self.weights[i+1], self.layer_error[i+1])
+            self.layer_error[i] = self.layer_error[i] * np.transpose(self.gradient(self.net_Input[i]))
 
     def update_weights(self, current_input):
         print("updating weights")
@@ -109,8 +109,12 @@ class BackPropagation:
     @staticmethod
     def max_index(vector, length):
         max_index = 0
+        print(vector)
+        vector.flatten()
+        print(vector)
         for i in range(0, length):
             if vector[i] > vector[max_index]:
+                print (vector[i])
                 max_index = i
         return max_index
 
