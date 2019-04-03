@@ -7,14 +7,14 @@ from task3_backpropagation import classification
 
 class GUI:
     window = tk.Tk()
-    module = ''
-    txtbx_numOfLayers = ''
-    txtbx_layershapes = ''
-    txtbx_rate = ''
-    txtbx_numOfEpochs = ''
-    chbttn_bias = ''
-    selection = ''
-    selectionf = ''
+    module = None
+    txtbx_numOfLayers = None
+    txtbx_layershapes = None
+    txtbx_rate = None
+    txtbx_numOfEpochs = None
+    chbttn_bias = None
+    selection = None
+    selectionf = None
     bias = tk.IntVar()
     rate = tk.StringVar()
     numOfEpochs = tk.IntVar()
@@ -38,11 +38,11 @@ class GUI:
         l_numoflayers = self.numOfLayers.get()
         for shape in l_shapes_string:
             r = int(shape)
-            shapes_list = np.append(shapes_list, r)
+            shapes_list.append(r)
         self.module = classification.BackPropagation(l_numoflayers, shapes_list, l_bias)
 
         # call read data with said classes and features
-        x1features, x2features, x3features, x4features, labels, class_names = self.read_data()
+        x1features, x2features, x3features, x4features, labels = self.read_data()
 
         # organise data : divide it into train and test data
         x1features = np.array(x1features)

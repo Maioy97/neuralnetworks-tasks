@@ -3,12 +3,12 @@ import numpy as np
 
 class BackPropagation:
     weights = {}  # []
-    bias = 1
+    bias = None
     layer_error = {}
     net_Input = {}
-    num_layers = 1
-    learning_rate = .1
-    function_number = 0
+    num_layers = None
+    learning_rate = None
+    function_number = None
     layers_shape = []
     output_y = []
 
@@ -18,7 +18,7 @@ class BackPropagation:
         self.bias = bias
         self.num_layers = num_layers
         # should be changed to receive the desired network shape and initialise the weight values in it
-        if bias == 0:
+        if self.bias == 0:
             self.weights[0] = np.random.rand(4, layer_shapes[0])  # loop over layer matrix s and initialise them
             for i in range(0, num_layers):
                 self.weights[i+1] = np.random.rand(layer_shapes[i], layer_shapes[i+1])
@@ -75,7 +75,8 @@ class BackPropagation:
         self.layer_error[self.num_layers] = (label - self.output_y) * self.gradient(self.net_Input[self.num_layers])
         for i in range(self.num_layers-1, 0, -1):
             print(i)
-            self.layer_error[i] = np.dot(self.weights[i+1], np.transpose(self.layer_error[i+1])) * self.gradient(self.net_Input[i])
+            self.layer_error[i] = np.dot(self.weights[i+1], np.transpose(self.layer_error[i+1]))
+            self.layer_error[i] = np.transpose(self.layer_error[i]) * np.transpose(self.gradient(self.net_Input[i]))
 
     def update_weights(self, current_input):
         print("updating weights")
@@ -86,18 +87,17 @@ class BackPropagation:
             self.weights[i] = self.weights[i] + self.learning_rate * self.layer_error[i] * np.transpose(self.net_Input[i-1])
         print("updating weights")
 
-    def train(self, labels, epochs, bias, x1, x2, x3, x4, lr, function_num):
+    def train(self, labels, epochs, x1, x2, x3, x4, lr, function_num):
         n = len(labels)
-        self.bias = bias
         self.function_number = function_num
         self.learning_rate = lr
 
         for i in range(0, epochs):
             for j in range(0, n):
-                if bias == 0:
+                if self.bias == 0:
                     current_input = [[x1[j], x2[j], x3[j], x4[j]]]
                 else:
-                    current_input = [[bias, x1[j], x2[j], x3[j], x4[j]]]
+                    current_input = [[self.bias, x1[j], x2[j], x3[j], x4[j]]]
                 # phase 1 : forward phase, get Y
                 self.network_output(current_input)
                 # phase 2 : backwards phase, calculate error
@@ -161,5 +161,5 @@ def test_model():
     print("\nerror = ", error)
 
 
-test_model()
+# test_model()
 
