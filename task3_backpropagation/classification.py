@@ -31,8 +31,9 @@ class BackPropagation:
                 self.net_Input[i] = np.empty((layer_shapes[i], 1))
                 self.layer_error[i] = np.empty((layer_shapes[i], 1))
 
-        self.net_Input[num_layers] = np.empty(3)  # net input for the final layer
-        print(self.net_Input)
+        self.net_Input[num_layers] = np.empty((3, 1))  # net input for the final layer
+        self.layer_error[num_layers] = np.empty((3, 1))
+        # print(self.net_Input)
 
     @staticmethod
     def sigmoid(num):
@@ -73,10 +74,15 @@ class BackPropagation:
         # for the output layer calculate square error
         # sigma at output layer = (t-y)*f'(net_input for output layer)   | num_layer -> output layer
         self.layer_error[self.num_layers] = (label - self.output_y) * self.gradient(self.net_Input[self.num_layers])
-        for i in range(self.num_layers-1, 0, -1):
+        if np.shape(self.layer_error[self.num_layers])[0] == 1:
+            self.layer_error[self.num_layers] = np.transpose(self.layer_error[self.num_layers])
+
+        for i in range(self.num_layers-1, -1, -1):
             print(i)
             self.layer_error[i] = np.dot(self.weights[i+1], self.layer_error[i+1])
             self.layer_error[i] = self.layer_error[i] * np.transpose(self.gradient(self.net_Input[i]))
+            if np.shape(self.layer_error[i + 1])[0] == 1:
+                self.layer_error[i + 1] = np.transpose(self.layer_error[i + 1])
 
     def update_weights(self, current_input):
         print("updating weights")
@@ -84,7 +90,8 @@ class BackPropagation:
         current_input = np.transpose(current_input)
         self.weights[0] = self.weights[0] + self.learning_rate * np.dot(current_input, np.transpose(self.layer_error[0]))
         for i in range(1, self.num_layers+1):
-            self.weights[i] = self.weights[i] + self.learning_rate * self.layer_error[i] * np.transpose(self.net_Input[i-1])
+            sigma = self.layer_error[i] * self.net_Input[i-1]
+            self.weights[i] = self.weights[i] + self.learning_rate * np.transpose(sigma)
         print("updating weights")
 
     def train(self, labels, epochs, x1, x2, x3, x4, lr, function_num):
@@ -114,7 +121,7 @@ class BackPropagation:
         print(vector)
         for i in range(0, length):
             if vector[i] > vector[max_index]:
-                print (vector[i])
+                print(vector[i])
                 max_index = i
         return max_index
 

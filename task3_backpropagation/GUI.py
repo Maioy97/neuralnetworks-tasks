@@ -42,7 +42,6 @@ class GUI:
                 shapes_list.append(r)
 
             self.module = classification.BackPropagation(l_numoflayers, shapes_list, l_bias)
-
             # call read data with said classes and features
             x1features, x2features, x3features, x4features, labels = self.read_data()
 
@@ -278,9 +277,3 @@ def test_training_only():
 
 #  test_training_only()
 window = GUI()
-'''GUI.plot_class(GUI, 0, 1)  # x1 x2
-GUI.plot_class(GUI, 0, 2)  # x1 x3
-GUI.plot_class(GUI, 0, 3)  # x1 x4
-GUI.plot_class(GUI, 1, 2)  # x2 x3
-GUI.plot_class(GUI, 1, 3)  # x2 x4
-GUI.plot_class(GUI, 2, 3)  # x3 x4'''
